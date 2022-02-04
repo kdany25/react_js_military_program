@@ -6,6 +6,7 @@ import Home from "./Pages/Home/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PatientList from './Pages/PatientList/Patientlist'
 import Patient from './Pages/Patient/PatientPro';
+import NewP from "./Pages/NewPatient/NewPatient"
 function App() {
   return (
     <Router>
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/user/:userId">
             <Patient />
+          </Route>
+          <Route path="/new">
+            <NewP />
           </Route>
         
       </Switch>
