@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Sharp");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --color-primary: #7380ec;
+  --color-danger: #ff7782;
+  --color-success: #41f1b6;
+  --color-warning: #ffbb55;
+  --color-white: #fff;
+  --color-info-dark: #7d8da1;
+  --color-info-light: #dce1eb;
+  --color-dark: #363949;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-primary-variant: #111e88;
+  --color-dark-variant: #677483;
+  --color-background: #f6f6f9;
+  --color-orange: #e66226;
+
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 0.8rem;
+  --border-radius-3: 1.2rem;
+
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+
+  --card-paddings: 2.7rem;
+  --paddings-1: 2rem;
+
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.lefts {
+  flex: 1;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.lefts .daily {
+    margin-top: 0rem;
+    text-align: center;
+  }
+  .lefts .daily h2 {
+    margin-bottom: 0.8rem;
+  }
+  .lefts .daily .item {
+    background: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem var(--card-padding);
+    border-radius: var(--border-radius-3);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+  }
+  
+  .lefts .daily .item:hover {
+      box-shadow: none;
+  }
+  .lefts .daily .item .right{
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin: 0;
+      width: 100%;
+  }
+  
+  .lefts .daily .item .icon {
+      padding: 0.6rem;
+      color: var(--color-white);
+      border-radius: 50%;
+      background: var(--color-primary);
+      display: flex;
+  }
+  
+  .lefts .daily .item.patient .icon {
+      background: var(--color-success);
+  }
+  
+  .lefts .daily .item.rod .icon {
+      background: var(--color-orange);
+  }
+  
+  .lefts .daily .add-record {
+      background-color: transparent;
+      border: 2px dashed var(--color-info-dark);
+      color: var(--color-info-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+  }
+  .lefts .daily .add-record div{
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+  }
+  
+  .lefts .daily .add-record div h3{
+      font-weight: 600;
+  }

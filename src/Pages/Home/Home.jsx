@@ -2,8 +2,8 @@ import Chart from "../../components/chart/Chart";
 import FeaturedInfo from "../../components/Insights/Insights";
 import "./home.css";
 import { userData } from "../../dummyData";
-import WidgetSm from "../../components/WidgetSm/Widgets";
-import WidgetLg from "../../components/widgetLG/WidgetL";
+import Daily from "../../components/daily/Daily";
+import Recent from "../../components/Recent/Recent";
 
 export default function Home() {
   return (
@@ -11,8 +11,8 @@ export default function Home() {
       <FeaturedInfo />
       <Chart data={userData} title="User Analytics" grid dataKey="Active User"/>
       <div className="homeWidgets">
-        <WidgetSm/>
-        <WidgetLg/>
+        <Daily/>
+        <Recent/>
       </div>
     </div>
   );
