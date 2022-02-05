@@ -1,79 +1,68 @@
-import  './recent.css'
+import "./recent.css";
 
 export default function Recent() {
-    return (
-        <div className='rights'>
-        <div className="recent-updated">
+  return (
+    <div className="rights">
+      <div className="recent-updated">
         <h2>Recent Updates</h2>
         <div className="updates">
+         
           <div className="update">
             <div className="profile-photo">
-              <img src="recent1.PNG" alt="" className="topAvatar"/>
+              <img
+                src="https://i.ibb.co/NWGzRZW/recent1.png"
+                alt=""
+                className="topAvatar"
+              />
             </div>
             <div className="message">
               <p>
-                <b>RDF </b>Lorem Ipsum es simplemente el texto de relleno de las
-              </p>
-              <small className="texted-muted">5 hours ago</small>
-            </div>
-          </div>
-          <div className="update">
-            <div className="profile-photo">
-            <img src="recent1.PNG" alt="" className="topAvatar" />
-            </div>
-            <div className="message">
-              <p>
-                <b>RDF </b>Lorem Ipsum es simplemente el texto de relleno de las
+                <b>RDF </b>It is a long established fact that a reader will be
+                distracted by the readable content of a page when looking at its
+                layout. The point of using Lorem Ipsum is that it has a
+                more-or-less 
               </p>
               <small className="texted-muted">2 day ago</small>
             </div>
           </div>
           <div className="update">
             <div className="profile-photo">
-            <img src="recent1.PNG" alt="" className="topAvatar" />
+              <img
+                src="https://i.ibb.co/NWGzRZW/recent1.png"
+                alt=""
+                className="topAvatar"
+              />
             </div>
             <div className="message">
               <p>
-                <b>RDF </b>Lorem Ipsum es simplemente el texto de relleno de las
+                <b>RDF </b>It is a long established fact that a reader will be
+                distracted by the readable content of a page when looking at its
+                layout. The point of using Lorem Ipsum is that it has a
+                more-or-less 
               </p>
               <small className="texted-muted">2 day ago</small>
             </div>
           </div>
           <div className="update">
             <div className="profile-photo">
-            <img src="recent1.PNG" alt="" className="topAvatar" />
+              <img
+                src="https://i.ibb.co/NWGzRZW/recent1.png"
+                alt=""
+                className="topAvatar"
+              />
             </div>
             <div className="message">
               <p>
-                <b>RDF </b>Lorem Ipsum es simplemente el texto de relleno de las
-              </p>
-              <small className="texted-muted">2 day ago</small>
-            </div>
-          </div>
-          <div className="update">
-            <div className="profile-photo">
-            <img src="recent1.PNG" alt="" className="topAvatar" />
-            </div>
-            <div className="message">
-              <p>
-                <b>RDF </b>Lorem Ipsum es simplemente el texto de relleno de las
-              </p>
-              <small className="texted-muted">2 day ago</small>
-            </div>
-          </div>
-          <div className="update">
-            <div className="profile-photo">
-            <img src="recent1.PNG" alt="" className="topAvatar" />
-            </div>
-            <div className="message">
-              <p>
-                <b>RDF </b>Lorem Ipsum es simplemente el texto de relleno de las
+                <b>RDF </b>It is a long established fact that a reader will be
+                distracted by the readable content of a page when looking at its
+                layout. The point of using Lorem Ipsum is that it has a
+                more-or-less 
               </p>
               <small className="texted-muted">10 hours ago</small>
             </div>
           </div>
         </div>
       </div>
-      </div>
-    )
+    </div>
+  );
 }
