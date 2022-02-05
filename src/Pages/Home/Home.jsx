@@ -9,11 +9,13 @@ export default function Home() {
   return (
     <div className="home">
       <FeaturedInfo />
+      <div className="homec">
       <Chart data={userData} title="Action Analytics" grid dataKey="Active User"/>
-      <div className="homeWidgets">
-        <Daily/>
-        <Recent/>
+      <Daily/>
       </div>
+        
+        <Recent/>
+      
     </div>
   );
 }

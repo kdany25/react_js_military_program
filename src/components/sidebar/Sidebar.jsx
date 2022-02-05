@@ -5,10 +5,7 @@ import {
   BarChart,
   DynamicFeed,
   ChatBubbleOutline,
-  HouseSharp,
   HouseTwoTone,
-  Brightness2Rounded,
-  Brightness1Outlined,
   HouseRounded,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
