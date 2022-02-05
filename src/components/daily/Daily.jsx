@@ -44,12 +44,7 @@ export default function Daily() {
             <h3>45Km</h3>
           </div>
         </div>
-        <div className="item add-record">
-          <div>
-            <span class="material-icons-sharp">add_circle_outline</span>
-            <h3> Add record</h3>
-          </div>
-        </div>
+        
       </div>
       </div>
     )
