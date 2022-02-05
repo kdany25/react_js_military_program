@@ -33,10 +33,11 @@
 
 .lefts {
   flex: 1;
-  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  padding: 20px;
-  margin-right: 20px;
+  /* -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75); */
+  /* box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75); */
+  /* padding: 20px; */
+  margin-left: 0.5rem;
+ 
 }
 
 .lefts .daily {
@@ -85,21 +86,4 @@
       background: var(--color-orange);
   }
   
-  .lefts .daily .add-record {
-      background-color: transparent;
-      border: 2px dashed var(--color-info-dark);
-      color: var(--color-info-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      
-  }
-  .lefts .daily .add-record div{
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-  }
   
-  .lefts .daily .add-record div h3{
-      font-weight: 600;
-  }

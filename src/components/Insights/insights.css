@@ -16,6 +16,7 @@
   
   .featuredTitle{
       font-size: 20px;
+      font-weight: 700;
   }
   
   .featuredMoneyContainer{
@@ -40,7 +41,36 @@
       margin-left: 5px;
       color: green;
   }
-  
+
+  .fit{
+      display: flex;
+  }
+  .sp{
+    background: var(--color-success);
+    color: var(--color-white);
+    font-size: 0.5rem;
+    padding: 0.5rem;
+    margin-left: 10rem;
+    border-radius: 50%;
+  }
+
+   .house {
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 0.5rem;
+    padding: 0.5rem;
+    margin-left: 10rem;
+    border-radius: 50%;
+  }
+
+   .road {
+    background: var(--color-orange);
+    color: var(--color-white);
+    font-size: 0.5rem;
+    padding: 0.5rem;
+    margin-left: 10rem;
+    border-radius: 50%;
+  }
   .featuredIcon.negative{
       color: red;
   }
