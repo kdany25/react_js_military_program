@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PatientList from './Pages/PatientList/Patientlist'
 import Patient from './Pages/Patient/PatientPro';
 import NewP from "./Pages/NewPatient/NewPatient"
+import ContactUs from './Pages/ContactUs/Contact';
 function App() {
   return (
     <Router>
@@ -17,7 +18,7 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/patient">
+        <Route exact path="/patients">
           <PatientList />
         </Route>
         <Route path="/user/:userId">
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/new">
             <NewP />
+          </Route>
+          <Route path="/contact">
+            <ContactUs />
           </Route>
         
       </Switch>
