@@ -11,7 +11,7 @@ export default function UserList() {
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
-  
+
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
@@ -28,15 +28,16 @@ export default function UserList() {
       },
     },
     { field: "email", headerName: "Email", width: 200 },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 120,
-    },
+    
     {
       field: "transaction",
-      headerName: "Transaction Volume",
+      headerName: "Desease",
       width: 160,
+    },
+    {
+      field: "status",
+      headerName: "Hosptalised",
+      width: 180,
     },
     {
       field: "action",
@@ -60,6 +61,10 @@ export default function UserList() {
 
   return (
     <div className="userList">
+      <h1>Patient List</h1>
+      <Link to="/new">
+        <button className="userAddButtons">Add patient</button>
+      </Link>
       <DataGrid
         rows={data}
         disableSelectionOnClick

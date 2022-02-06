@@ -13,29 +13,27 @@ import {
     return (
       <div className="user">
         <div className="userTitleContainer">
-          <h1 className="userTitle">Edit User</h1>
-          <Link to="/new">
-            <button className="userAddButton">Create</button>
-          </Link>
+          <h1 className="userTitle"> Patient details</h1>
+          
         </div>
         <div className="userContainer">
           <div className="userShow">
             <div className="userShowTop">
               <img
-                src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                src="https://i.ibb.co/Nmmczqx/patient-icon-png-26.png"
                 alt=""
                 className="userShowImg"
               />
               <div className="userShowTopTitle">
-                <span className="userShowUsername">Anna Becker</span>
-                <span className="userShowUserTitle">Software Engineer</span>
+                <span className="userShowUsername">Kabalisa Dany</span>
+                
               </div>
             </div>
             <div className="userShowBottom">
-              <span className="userShowTitle">Account Details</span>
+              <span className="userShowTitle"> Details</span>
               <div className="userShowInfo">
                 <PermIdentity className="userShowIcon" />
-                <span className="userShowInfoTitle">annabeck99</span>
+                <span className="userShowInfoTitle">Cancer</span>
               </div>
               <div className="userShowInfo">
                 <CalendarToday className="userShowIcon" />
@@ -44,15 +42,15 @@ import {
               <span className="userShowTitle">Contact Details</span>
               <div className="userShowInfo">
                 <PhoneAndroid className="userShowIcon" />
-                <span className="userShowInfoTitle">+1 123 456 67</span>
+                <span className="userShowInfoTitle">+250788730199</span>
               </div>
               <div className="userShowInfo">
                 <MailOutline className="userShowIcon" />
-                <span className="userShowInfoTitle">annabeck99@gmail.com</span>
+                <span className="userShowInfoTitle">kabadany99@gmail.com</span>
               </div>
               <div className="userShowInfo">
                 <LocationSearching className="userShowIcon" />
-                <span className="userShowInfoTitle">New York | USA</span>
+                <span className="userShowInfoTitle">Kigali | Rwanda</span>
               </div>
             </div>
           </div>
@@ -60,19 +58,12 @@ import {
             <span className="userUpdateTitle">Edit</span>
             <form className="userUpdateForm">
               <div className="userUpdateLeft">
-                <div className="userUpdateItem">
-                  <label>Username</label>
-                  <input
-                    type="text"
-                    placeholder="annabeck99"
-                    className="userUpdateInput"
-                  />
-                </div>
+                
                 <div className="userUpdateItem">
                   <label>Full Name</label>
                   <input
                     type="text"
-                    placeholder="Anna Becker"
+                    placeholder="Kabalisa dany"
                     className="userUpdateInput"
                   />
                 </div>
@@ -80,7 +71,7 @@ import {
                   <label>Email</label>
                   <input
                     type="text"
-                    placeholder="annabeck99@gmail.com"
+                    placeholder="kabadany99@gmail.com"
                     className="userUpdateInput"
                   />
                 </div>
@@ -88,7 +79,7 @@ import {
                   <label>Phone</label>
                   <input
                     type="text"
-                    placeholder="+1 123 456 67"
+                    placeholder="+250788730199"
                     className="userUpdateInput"
                   />
                 </div>
@@ -96,7 +87,7 @@ import {
                   <label>Address</label>
                   <input
                     type="text"
-                    placeholder="New York | USA"
+                    placeholder="Kigali | Rwanda"
                     className="userUpdateInput"
                   />
                 </div>
@@ -105,7 +96,7 @@ import {
                 <div className="userUpdateUpload">
                   <img
                     className="userUpdateImg"
-                    src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                    src="https://i.ibb.co/Nmmczqx/patient-icon-png-26.png"
                     alt=""
                   />
                   <label htmlFor="file">
