@@ -9,6 +9,8 @@ import Patient from "./Pages/Patient/PatientPro";
 import NewP from "./Pages/NewPatient/NewPatient";
 import ContactUs from "./Pages/ContactUs/Contact";
 import Houses from "./Pages/House/House";
+import NewHouse from "./Pages/NewHouse/NewHouse";
+import HousePro from "./Pages/UpdateHouse/HousePro";
 function App() {
   return (
     <Router>
@@ -25,11 +27,17 @@ function App() {
           <Route path="/user/:userId">
             <Patient />
           </Route>
+          <Route path="/house/:Id">
+            <HousePro/>
+          </Route>
           <Route path="/new">
             <NewP />
           </Route>
           <Route path="/houses">
             <Houses />
+          </Route>
+          <Route path="/newHouse">
+            <NewHouse />
           </Route>
           <Route path="/contact">
             <ContactUs />
