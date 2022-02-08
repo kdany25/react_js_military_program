@@ -13,9 +13,6 @@ export default function Home() {
       <Chart data={userData} title="Action Analytics" grid dataKey="Active User"/>
       <Daily/>
       </div>
-        
-        <Recent/>
-      
     </div>
   );
 }

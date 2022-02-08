@@ -12,12 +12,12 @@ export default function Insights() {
         </div>
         </div>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">786</span>
+          <span className="featuredMoney">1345</span>
           <span className="featuredMoneyRate">
             +89 <ArrowUpward  className="featuredIcon "/>
           </span>
         </div>
-        <span className="featuredSub">Compared to yesterday</span>
+        <span className="featuredSub">Compared to last week</span>
       </div>
       <div className="featuredItem">
       <div className="fit">
@@ -27,9 +27,9 @@ export default function Insights() {
         </div>
         </div>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">253</span>
+          <span className="featuredMoney">24</span>
           <span className="featuredMoneyRate">
-            21 <ArrowDownward className="featuredIcon negative"/>
+            -2 <ArrowDownward className="featuredIcon negative"/>
           </span>
         </div>
         <span className="featuredSub">Compared to last week</span>
@@ -41,12 +41,12 @@ export default function Insights() {
         <span class="material-icons-sharp">add_road</span>
         </div></div>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">52Km</span>
+          <span className="featuredMoney">18Km</span>
           <span className="featuredMoneyRate">
             +2.4 <ArrowUpward className="featuredIcon"/>
           </span>
         </div>
-        <span className="featuredSub">Compared to last year</span>
+        <span className="featuredSub">Compared to last week</span>
       </div>
     </div>
   );

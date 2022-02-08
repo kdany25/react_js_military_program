@@ -43,11 +43,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Building</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <HouseTwoTone className="sidebarIcon" />
-              House
-            </li>
-
+            <Link to="/houses" className="link">
+              <li className="sidebarListItem">
+                <HouseTwoTone className="sidebarIcon" />
+                House
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
               Reports
@@ -72,13 +73,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Reach to Us</h3>
           <ul className="sidebarList">
-          <Link to="/contact" className="link">
-            <li className="sidebarListItem">
-              <DynamicFeed className="sidebarIcon" />
-              Feedback
-            </li>
+            <Link to="/contact" className="link">
+              <li className="sidebarListItem">
+                <DynamicFeed className="sidebarIcon" />
+                Feedback
+              </li>
             </Link>
-          
           </ul>
         </div>
 
