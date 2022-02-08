@@ -51,7 +51,7 @@ export default function Houses() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
+            <Link to={"/house/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -67,7 +67,7 @@ export default function Houses() {
   return (
     <div className="userList">
       <h1>House Built</h1>
-      <Link to="/new">
+      <Link to="/newHouse">
         <button className="userAddButtons">+ Add Record</button>
       </Link>
       <DataGrid
