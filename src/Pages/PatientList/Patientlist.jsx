@@ -60,6 +60,7 @@ export default function UserList() {
   ];
 
   return (
+
     <div className="userList">
       <h1>Patient List</h1>
       <Link to="/new">
