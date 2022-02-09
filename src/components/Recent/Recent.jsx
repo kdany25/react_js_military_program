@@ -18,9 +18,7 @@ export default function Recent() {
             <div className="message">
               <p>
                 <b>RDF </b>It is a long established fact that a reader will be
-                distracted by the readable content of a page when looking at its
-                layout. The point of using Lorem Ipsum is that it has a
-                more-or-less 
+                distracted
               </p>
               <small className="texted-muted">2 day ago</small>
             </div>
@@ -36,9 +34,7 @@ export default function Recent() {
             <div className="message">
               <p>
                 <b>RDF </b>It is a long established fact that a reader will be
-                distracted by the readable content of a page when looking at its
-                layout. The point of using Lorem Ipsum is that it has a
-                more-or-less 
+                distracted 
               </p>
               <small className="texted-muted">2 day ago</small>
             </div>
@@ -54,9 +50,7 @@ export default function Recent() {
             <div className="message">
               <p>
                 <b>RDF </b>It is a long established fact that a reader will be
-                distracted by the readable content of a page when looking at its
-                layout. The point of using Lorem Ipsum is that it has a
-                more-or-less 
+                distracted 
               </p>
               <small className="texted-muted">10 hours ago</small>
             </div>

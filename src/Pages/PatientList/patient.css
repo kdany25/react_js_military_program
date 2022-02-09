@@ -1,6 +1,7 @@
 
 .userList {
     flex: 4;
+    margin-left: 3rem;
   }
 
   .userList h1{
@@ -46,3 +47,14 @@
       color: red;
       cursor: pointer;
   }
+
+  .wp{
+
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 2rem;
+  }
+ .pw{
+   display: flex;
+ }
