@@ -1,12 +1,16 @@
 .newUser {
     flex: 4;
+    margin-left: 3rem;
   }
   
   .newUserForm {
     display: flex;
     flex-wrap: wrap;
   }
-  
+  .newUserTitle{
+    margin-bottom: 2rem;
+
+  }
   .newUserItem {
     width: 400px;
     display: flex;
