@@ -37,7 +37,20 @@ import {
     addHouseFailure,
 } from "./houseRedux"
 
-
+import {
+  getRoadStart,
+  getRoadSuccess,
+  getRoadFailure,
+  deleteRoadStart,
+  deleteRoadSuccess,
+  deleteRoadFailure,
+  updateRoadStart,
+  updateRoadSuccess,
+  updateRoadFailure,
+  addRoadStart,
+  addRoadSuccess,
+  addRoadFailure,
+} from "./roadRedux"
 //login
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -135,7 +148,7 @@ export const getHouse = async (dispatch) => {
       }
     };
   
-    //add patient
+    //add house
     export const addHouse = async (house , dispatch) => {
       dispatch(addHouseStart());
       try {
@@ -145,3 +158,49 @@ export const getHouse = async (dispatch) => {
         dispatch(addHouseFailure());
       }
     };
+
+
+    
+  //get  road
+export const getRoad = async (dispatch) => {
+  dispatch(getRoadStart());
+  try {
+    const res = await publicRequest.get("/roads");
+    dispatch(getRoadSuccess(res.data));
+  } catch (err) {
+    dispatch(getRoadFailure());
+  }
+};
+
+//delete road
+export const deleteRoad = async (id, dispatch) => {
+  dispatch(deleteRoadStart());
+  try {
+    const res = await userRequest.delete(`/roads/${id}`);
+    dispatch(deleteRoadSuccess(res.data));
+  } catch (err) {
+    dispatch(deleteRoadFailure());
+  }
+};
+
+
+export const updateRoad = async (id, road, dispatch) => {
+    dispatch(updateRoadStart());
+    try {
+      // update road
+      dispatch(updateRoadSuccess({ id, road }));
+    } catch (err) {
+      dispatch(updateRoadFailure());
+    }
+  };
+
+  //add road
+  export const addRoad = async (road , dispatch) => {
+    dispatch(addRoadStart());
+    try {
+      const res = await userRequest.post(`/roads`, road);
+      dispatch(addRoadSuccess(res.data));
+    } catch (err) {
+      dispatch(addRoadFailure());
+    }
+  };

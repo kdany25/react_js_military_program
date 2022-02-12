@@ -58,11 +58,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Roads</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <HouseRounded className="sidebarIcon" />
-              Roads
-            </li>
-
+            <Link to="/roads" className="link">
+              <li className="sidebarListItem">
+                <HouseRounded className="sidebarIcon" />
+                Roads
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
               Analytics

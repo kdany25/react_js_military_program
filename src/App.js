@@ -13,6 +13,9 @@ import NewHouse from "./Pages/NewHouse/NewHouse";
 import HousePro from "./Pages/UpdateHouse/HousePro";
 import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/SignUp/SignUp";
+import RoadList from "./Pages/RoadsList/RoadList";
+import Road from "./Pages/Road/RoadPro";
+import NewRoad from "./Pages/newRoad/NewRoad";
 function App() {
   return (
     <Router>
@@ -30,14 +33,23 @@ function App() {
             <Route exact path="/patients">
               <PatientList />
             </Route>
+            <Route exact path="/roads">
+              <RoadList />
+            </Route>
             <Route path="/Health/:userId">
               <Patient />
+            </Route>
+            <Route path="/roads/:userId">
+              <Road/>
             </Route>
             <Route path="/house/:Id">
               <HousePro />
             </Route>
             <Route path="/new">
               <NewP />
+            </Route>
+            <Route path="/newroad">
+              <NewRoad />
             </Route>
             <Route path="/houses">
               <Houses />

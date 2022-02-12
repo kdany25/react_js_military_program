@@ -27,7 +27,7 @@ export default function Houses() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            <img className="userListImg" src={params.row.img} alt="" />
+            <img className="userListImg" src="https://i.ibb.co/hDX2G1n/house.jpg" alt="" />
             {params.row.owner}
           </div>
         );

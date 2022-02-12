@@ -1,53 +1,47 @@
-import "./patient.css";
+import "./roadlist.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePatient, getPatient } from "../../redux/apiCalls";
+import { deleteRoad, getRoad } from "../../redux/apiCalls";
 
-export default function UserList() {
+export default function RoadList() {
   const dispatch = useDispatch();
-  const patients = useSelector((state) => state.patient.patient);
+  const roads = useSelector((state) => state.road.roads);
 
   useEffect(() => {
-    getPatient(dispatch);
+    getRoad(dispatch);
   }, [dispatch]);
 
   const handleDelete = (id) => {
-    deletePatient(id, dispatch);
+    deleteRoad(id, dispatch);
   };
   const columns = [
     { field: "_id", headerName: "ID", width: 90 },
     {
-      field: "patient",
-      headerName: "patient",
+      field: "road",
+      headerName: "Roads",
       width: 150,
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            <img className="userListImg" src="https://i.ibb.co/RYKPGGJ/Healthcare.jpg" alt="" />
-            {params.row.pname}
+            <img className="userListImg" src="https://i.ibb.co/Yyt2P4b/Capture.png" alt="" />
+            {params.row.place}
           </div>
         );
       },
     },
-    { field: "email", headerName: "Email", width: 150 },
 
     {
-      field: "phone",
-      headerName: "phone",
+      field: "desc",
+      headerName: "desc",
       width: 150,
     },
     {
-      field: "age",
-      headerName: "age",
+      field: "kmreached",
+      headerName: "KM",
       width: 120,
-    },
-    {
-      field: "desease",
-      headerName: "desease",
-      width: 160,
     },
     {
       field: "action",
@@ -56,7 +50,7 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/Health/" + params.row._id}>
+            <Link to={"/roads/" + params.row._id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -71,12 +65,12 @@ export default function UserList() {
 
   return (
     <div className="userList">
-      <h1>Patient List</h1>
-      <Link to="/new">
-        <button className="userAddButtons">Add patient</button>
+      <h1>Roads</h1>
+      <Link to="/newroad">
+        <button className="userAddButtons">+Add </button>
       </Link>
       <DataGrid
-        rows={patients}
+        rows={roads}
         disableSelectionOnClick
         columns={columns}
         getRowId={(row) => row._id}
