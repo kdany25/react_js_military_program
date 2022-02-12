@@ -2,6 +2,7 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import userReducer from "./userRedux";
 import patientReducer from "./patientRedux";
 import houseReducer from "./houseRedux"
+import roadReducer from "./roadRedux"
 import {
   persistStore,
   persistReducer,
@@ -23,7 +24,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: userReducer,
   patient: patientReducer,
-  house : houseReducer
+  house : houseReducer,
+  road : roadReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { addPatient } from "../../redux/apiCalls";
 import { useDispatch } from "react-redux";
 
-export default function NewUser() {
+export default function NewPatient() {
   const [inputs, setInputs] = useState({});
   const dispatch = useDispatch();
 
