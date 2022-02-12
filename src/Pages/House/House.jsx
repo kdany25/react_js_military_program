@@ -3,31 +3,37 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { HouseRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteHouse, getHouse } from "../../redux/apiCalls";
 
 export default function Houses() {
-  const [data, setData] = useState(HouseRows);
+  const dispatch = useDispatch();
+  const houses = useSelector((state) => state.house.houses);
+
+  useEffect(() => {
+    getHouse(dispatch);
+  }, [dispatch]);
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    deleteHouse(id, dispatch);
   };
-
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "_id", headerName: "ID", width: 90 },
     {
-      field: "name",
-      headerName: "Owner",
+      field: "house",
+      headerName: "House",
       width: 200,
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            <img className="userListImg" src={params.row.avatar} alt="" />
-            {params.row.ownername}
+            <img className="userListImg" src={params.row.img} alt="" />
+            {params.row.owner}
           </div>
         );
       },
     },
-    { field: "address", headerName: "", width: 130 },
+    { field: "address", headerName: "Address", width: 130 },
     
     {
       field: "phone",
@@ -35,13 +41,13 @@ export default function Houses() {
       width: 160,
     },
     {
-      field: "new",
-      headerName: "New House",
+      field: "peopleInhouse",
+      headerName: "people live in ",
       width: 180,
     },
     {
-        field: "people",
-        headerName: "peoplein house",
+        field: "newHouse",
+        headerName: "new House?",
         width: 120,
       },
     {
@@ -51,12 +57,12 @@ export default function Houses() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/house/" + params.row.id}>
+            <Link to={"/house/" + params.row._id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
               className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );
@@ -71,9 +77,10 @@ export default function Houses() {
         <button className="userAddButtons">+ Add Record</button>
       </Link>
       <DataGrid
-        rows={data}
+        rows={houses}
         disableSelectionOnClick
         columns={columns}
+        getRowId={(row) => row._id}
         pageSize={8}
         checkboxSelection
       />

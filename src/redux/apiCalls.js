@@ -22,6 +22,23 @@ import {
   addPatientFailure,
 } from "./patientRedux";
 
+import {
+    getHouseStart,
+    getHouseSuccess,
+    getHouseFailure,
+    deleteHouseStart,
+    deleteHouseSuccess,
+    deleteHouseFailure,
+    updateHouseStart,
+    updateHouseSuccess,
+    updateHouseFailure,
+    addHouseStart,
+    addHouseSuccess,
+    addHouseFailure,
+} from "./houseRedux"
+
+
+//login
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
@@ -31,7 +48,7 @@ export const login = async (dispatch, user) => {
     dispatch(loginFailure());
   }
 };
-
+//get users
 export const getUsers = async (dispatch) => {
   dispatch(getUserStart());
   try {
@@ -72,6 +89,8 @@ export const updatePatient = async (id, patient, dispatch) => {
       dispatch(updatePatientFailure());
     }
   };
+
+  //add patient
   export const addPatient = async (patient , dispatch) => {
     dispatch(addPatientStart());
     try {
@@ -81,3 +100,48 @@ export const updatePatient = async (id, patient, dispatch) => {
       dispatch(addPatientFailure());
     }
   };
+
+
+  //get  house
+export const getHouse = async (dispatch) => {
+    dispatch(getHouseStart());
+    try {
+      const res = await publicRequest.get("/house");
+      dispatch(getHouseSuccess(res.data));
+    } catch (err) {
+      dispatch(getHouseFailure());
+    }
+  };
+  
+  //delete house
+  export const deleteHouse = async (id, dispatch) => {
+    dispatch(deleteHouseStart());
+    try {
+      const res = await userRequest.delete(`/house/${id}`);
+      dispatch(deleteHouseSuccess(res.data));
+    } catch (err) {
+      dispatch(deleteHouseFailure());
+    }
+  };
+
+
+  export const updateHouse = async (id, house, dispatch) => {
+      dispatch(updateHouseStart());
+      try {
+        // update
+        dispatch(updateHouseSuccess({ id, house }));
+      } catch (err) {
+        dispatch(updateHouseFailure());
+      }
+    };
+  
+    //add patient
+    export const addHouse = async (house , dispatch) => {
+      dispatch(addHouseStart());
+      try {
+        const res = await userRequest.post(`/house`, house);
+        dispatch(addHouseSuccess(res.data));
+      } catch (err) {
+        dispatch(addHouseFailure());
+      }
+    };
