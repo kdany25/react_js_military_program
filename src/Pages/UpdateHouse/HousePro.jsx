@@ -1,15 +1,21 @@
 import {
-    CalendarToday,
     LocationSearching,
-    MailOutline,
     PermIdentity,
     PhoneAndroid,
     Publish,
+    CalendarToday
   } from "@material-ui/icons";
-  import { Link } from "react-router-dom";
   import "./housepro.css";
+  import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
   
   export default function HousePro() {
+    const location = useLocation();
+    const houseId = location.pathname.split("/")[2];
+  
+    const house= useSelector((state) =>
+    state.house.houses.find((house) => house._id === houseId)
+    );
     return (
       <div className="user">
         <div className="userTitleContainer">
@@ -25,7 +31,7 @@ import {
                 className="userShowImg"
               />
               <div className="userShowTopTitle">
-                <span className="userShowUsername">Owner: Kabalisa</span>
+                <span className="userShowUsername">{house.owner}</span>
                 
               </div>
             </div>
@@ -33,16 +39,16 @@ import {
               <span className="userShowTitle"> Details</span>
               <div className="userShowInfo">
                 <PermIdentity className="userShowIcon" />
-                <span className="userShowInfoTitle">7 people in House</span>
+                <span className="userShowInfoTitle">{house.peopleInhouse} people in House</span>
               </div>
-              {/* <div className="userShowInfo">
+              <div className="userShowInfo">
                 <CalendarToday className="userShowIcon" />
-                <span className="userShowInfoTitle">10.12.1999</span>
-              </div> */}
+                <span className="userShowInfoTitle">{house.createdAt}</span>
+              </div>
               <span className="userShowTitle">Contact Details</span>
               <div className="userShowInfo">
                 <PhoneAndroid className="userShowIcon" />
-                <span className="userShowInfoTitle">+250788730199</span>
+                <span className="userShowInfoTitle">{house?.phone}</span>
               </div>
               {/* <div className="userShowInfo">
                 <MailOutline className="userShowIcon" />
@@ -50,7 +56,7 @@ import {
               </div> */}
               <div className="userShowInfo">
                 <LocationSearching className="userShowIcon" />
-                <span className="userShowInfoTitle">Kigali | Rwanda</span>
+                <span className="userShowInfoTitle">{house.address}</span>
               </div>
             </div>
           </div>
@@ -63,7 +69,7 @@ import {
                   <label>Full Name</label>
                   <input
                     type="text"
-                    placeholder="Kabalisa dany"
+                    placeholder={house.owner}
                     className="userUpdateInput"
                   />
                 </div>
@@ -71,7 +77,7 @@ import {
                   <label>People In House</label>
                   <input
                     type="text"
-                    placeholder="5"
+                    placeholder={house.peopleInhouse}
                     className="userUpdateInput"
                   />
                 </div>
@@ -79,7 +85,7 @@ import {
                   <label>Phone</label>
                   <input
                     type="text"
-                    placeholder="+250788730199"
+                    placeholder={house.phone}
                     className="userUpdateInput"
                   />
                 </div>
@@ -87,7 +93,7 @@ import {
                   <label>Address</label>
                   <input
                     type="text"
-                    placeholder="Kigali | Rwanda"
+                    placeholder={house.address}
                     className="userUpdateInput"
                   />
                 </div>

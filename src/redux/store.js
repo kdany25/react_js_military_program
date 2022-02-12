@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import userReducer from "./userRedux";
 import patientReducer from "./patientRedux";
+import houseReducer from "./houseRedux"
 import {
   persistStore,
   persistReducer,
@@ -22,6 +23,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: userReducer,
   patient: patientReducer,
+  house : houseReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

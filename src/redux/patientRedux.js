@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const patientSlice = createSlice({
   name: "patient",
   initialState: {
-    products: [],
+    patients: [],
     isFetching: false,
     error: false,
   },
@@ -15,7 +15,7 @@ export const patientSlice = createSlice({
     },
     getPatientSuccess: (state, action) => {
       state.isFetching = false;
-      state.patient = action.payload;
+      state.patients = action.payload;
     },
     getPatientFailure: (state) => {
       state.isFetching = false;
@@ -46,7 +46,7 @@ export const patientSlice = createSlice({
       state.isFetching = false;
       state.patients[
         state.patients.findIndex((item) => item._id === action.payload.id)
-      ] = action.payload.product;
+      ] = action.payload.patient;
     },
     updatePatientFailure: (state) => {
       state.isFetching = false;
