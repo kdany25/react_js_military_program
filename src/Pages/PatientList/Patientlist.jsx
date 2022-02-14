@@ -8,7 +8,7 @@ import { deletePatient, getPatient } from "../../redux/apiCalls";
 
 export default function UserList() {
   const dispatch = useDispatch();
-  const patients = useSelector((state) => state.patient.patient);
+  const patients = useSelector((state) => state.patient.patients);
 
   useEffect(() => {
     getPatient(dispatch);
