@@ -4,6 +4,8 @@ import patientReducer from "./patientRedux";
 import houseReducer from "./houseRedux"
 import roadReducer from "./roadRedux"
 import healthplanReducer from './healthPlanRedux'
+import houseplanReducer from "./housePlanRedux"
+import roadplanReducer from "./roadPlanRedux"
 import {
   persistStore,
   persistReducer,
@@ -27,7 +29,9 @@ const rootReducer = combineReducers({
   patient: patientReducer,
   house : houseReducer,
   road : roadReducer,
-  healthplan : healthplanReducer
+  healthplan : healthplanReducer,
+  houseplan: houseplanReducer,
+  roadplan : roadplanReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

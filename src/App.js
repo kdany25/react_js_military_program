@@ -20,6 +20,7 @@ import NewHealthplan from "./Pages/HealthPlan/NewHealthPlan";
 import NewHousePlan from "./Pages/HousePlan/NewHousePlan";
 import NewRoadPlan from "./Pages/RoadPlan/NewRoadPlan";
 import HealthPlanList from "./Pages/HealthPlanList/HealthPlanList";
+import HousePlanList from "./Pages/HousePlanList/HousePlanList";
 function App() {
   return (
     <Router>
@@ -79,6 +80,9 @@ function App() {
             </Route>
             <Route path="/health-plan">
               <HealthPlanList />
+            </Route>
+            <Route path="/house-plan">
+              <HousePlanList />
             </Route>
           </div>
         </>

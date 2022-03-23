@@ -4,14 +4,14 @@ import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePatient, getHealthPlan } from "../../redux/apiCalls";
+import { deletePatient, getHousePlan } from "../../redux/apiCalls";
 
-export default function HealthPlanList() {
+export default function HousePlanList() {
   const dispatch = useDispatch();
-  const healthplans = useSelector((state) => state.healthplan.healthPlans);
+  const housePlans = useSelector((state) => state.houseplan.housePlans);
 
   useEffect(() => {
-    getHealthPlan(dispatch);
+    getHousePlan(dispatch);
   }, [dispatch]);
 
   const handleDelete = (id) => {
@@ -20,8 +20,8 @@ export default function HealthPlanList() {
   const columns = [
     { field: "_id", headerName: "ID", width: 90 },
     {
-      field: "patient",
-      headerName: "patient",
+      field: "location",
+      headerName: "location",
       width: 150,
       renderCell: (params) => {
         return (
@@ -33,6 +33,7 @@ export default function HealthPlanList() {
       },
     },
 
+
     {
       field: "number",
       headerName: "number",
@@ -42,11 +43,6 @@ export default function HealthPlanList() {
       field: "period",
       headerName: "period",
       width: 120,
-    },
-    {
-      field: "desease",
-      headerName: "desease",
-      width: 160,
     },
     {
         field: "cost",
@@ -85,7 +81,7 @@ export default function HealthPlanList() {
         <button className="userAddButtons">Add patient</button>
       </Link>
       <DataGrid
-        rows={healthplans}
+        rows={housePlans}
         disableSelectionOnClick
         columns={columns}
         getRowId={(row) => row._id}
