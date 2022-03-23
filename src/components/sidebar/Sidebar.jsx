@@ -27,6 +27,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Health</h3>
           <ul className="sidebarList">
+          <Link to="/health-plan" className="link">
+              <li className="sidebarListItem">
+                <PermIdentity className="sidebarIcon" />
+                Health Plans
+              </li>
+            </Link>
           <Link to="/newHealthPlan" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
