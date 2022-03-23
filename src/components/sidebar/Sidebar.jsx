@@ -27,6 +27,18 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Health</h3>
           <ul className="sidebarList">
+          <Link to="/health-plan" className="link">
+              <li className="sidebarListItem">
+                <PermIdentity className="sidebarIcon" />
+                Health Plans
+              </li>
+            </Link>
+          <Link to="/newHealthPlan" className="link">
+              <li className="sidebarListItem">
+                <PermIdentity className="sidebarIcon" />
+                Health Plan
+              </li>
+            </Link>
             <Link to="/patients" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
@@ -42,6 +54,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Building</h3>
           <ul className="sidebarList">
+          <Link to="/newHousePlan" className="link">
+              <li className="sidebarListItem">
+                <HouseTwoTone className="sidebarIcon" />
+                House Plan
+              </li>
+            </Link>
             <Link to="/houses" className="link">
               <li className="sidebarListItem">
                 <HouseTwoTone className="sidebarIcon" />
@@ -58,6 +76,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Roads</h3>
           <ul className="sidebarList">
+          <Link to="/newR" className="link">
+              <li className="sidebarListItem">
+                <HouseRounded className="sidebarIcon" />
+                Roads Plan
+              </li>
+            </Link>
             <Link to="/roads" className="link">
               <li className="sidebarListItem">
                 <HouseRounded className="sidebarIcon" />

@@ -16,6 +16,10 @@ import SignUp from "./Pages/SignUp/SignUp";
 import RoadList from "./Pages/RoadsList/RoadList";
 import Road from "./Pages/Road/RoadPro";
 import NewRoad from "./Pages/newRoad/NewRoad";
+import NewHealthplan from "./Pages/HealthPlan/NewHealthPlan";
+import NewHousePlan from "./Pages/HousePlan/NewHousePlan";
+import NewRoadPlan from "./Pages/RoadPlan/NewRoadPlan";
+import HealthPlanList from "./Pages/HealthPlanList/HealthPlanList";
 function App() {
   return (
     <Router>
@@ -40,7 +44,7 @@ function App() {
               <Patient />
             </Route>
             <Route path="/roads/:userId">
-              <Road/>
+              <Road />
             </Route>
             <Route path="/house/:Id">
               <HousePro />
@@ -62,6 +66,19 @@ function App() {
             </Route>
             <Route path="/newUser">
               <SignUp />
+            </Route>
+            <Route path="/newHealthPlan">
+              <NewHealthplan />
+            </Route>
+            <Route path="/newHousePlan">
+              <NewHousePlan />
+            </Route>
+
+            <Route path="/newR">
+              <NewRoadPlan />
+            </Route>
+            <Route path="/health-plan">
+              <HealthPlanList />
             </Route>
           </div>
         </>

@@ -51,6 +51,33 @@ import {
   addRoadSuccess,
   addRoadFailure,
 } from "./roadRedux"
+import {
+  getHousePlanStart,
+  getHousePlanSuccess,
+  getHousePlanFailure,
+  addHousePlanStart,
+  addHousePlanSuccess,
+  addHousePlanFailure,
+} from "./housePlanRedux"
+
+import {
+  getHealthPlanStart,
+  getHealthPlanSuccess,
+  getHealthPlanFailure,
+  addHealthPlanStart,
+  addHealthPlanSuccess,
+  addHealthPlanFailure,
+} from "./healthPlanRedux"
+
+import {
+  getRoadPlanStart,
+  getRoadPlanSuccess,
+  getRoadPlanFailure,
+  addRoadPlanStart,
+  addRoadPlanSuccess,
+  addRoadPlanFailure,
+} from "./roadPlanRedux"
+
 //login
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -159,8 +186,72 @@ export const getHouse = async (dispatch) => {
       }
     };
 
+    //add houseplan
+    export const addHousePlan = async (house , dispatch) => {
+      dispatch( addHousePlanStart());
+      try {
+        const res = await userRequest.post(`/HousePlan`, house);
+        dispatch(addHousePlanSuccess(res.data));
+      } catch (err) {
+        dispatch( addHousePlanFailure());
+      }
+    };
 
-    
+    //get  houseplan
+export const getHousePlan = async (dispatch) => {
+  dispatch(getHousePlanStart());
+  try {
+    const res = await publicRequest.get("/HousePlan");
+    dispatch(getHousePlanSuccess(res.data));
+  } catch (err) {
+    dispatch( getHousePlanFailure());
+  }
+};
+       //add healthplan
+       export const addHealthPlan = async (house , dispatch) => {
+        dispatch( addHealthPlanStart());
+        try {
+          const res = await userRequest.post(`/HealthPlan`, house);
+          dispatch(addHealthPlanSuccess(res.data));
+        } catch (err) {
+          dispatch( addHealthPlanFailure());
+        }
+      };
+  
+      //get  healthplan
+  export const getHealthPlan = async (dispatch) => {
+    dispatch(getHealthPlanStart());
+    try {
+      const res = await publicRequest.get("/HealthPlan");
+      dispatch(getHealthPlanSuccess(res.data));
+    } catch (err) {
+      dispatch( getHealthPlanFailure());
+    }
+  };
+
+
+  //add roadplan
+  export const addRoadPlan = async (house , dispatch) => {
+    dispatch( addRoadPlanStart());
+    try {
+      const res = await userRequest.post(`/RoadsPlan`, house);
+      dispatch(addRoadPlanSuccess(res.data));
+    } catch (err) {
+      dispatch( addRoadPlanFailure());
+    }
+  };
+
+  //get  roadplan
+export const getRoadPlan = async (dispatch) => {
+dispatch(getRoadPlanStart());
+try {
+  const res = await publicRequest.get("/RoadsPlan");
+  dispatch(getRoadPlanSuccess(res.data));
+} catch (err) {
+  dispatch( getRoadPlanFailure());
+}
+};
+
   //get  road
 export const getRoad = async (dispatch) => {
   dispatch(getRoadStart());
