@@ -82,6 +82,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Roads</h3>
           <ul className="sidebarList">
+          <Link to="/road-plan" className="link">
+              <li className="sidebarListItem">
+                <HouseRounded className="sidebarIcon" />
+                Roads Plans
+              </li>
+            </Link>
           <Link to="/newR" className="link">
               <li className="sidebarListItem">
                 <HouseRounded className="sidebarIcon" />
