@@ -21,7 +21,7 @@ import NewHousePlan from "./Pages/HousePlan/NewHousePlan";
 import NewRoadPlan from "./Pages/RoadPlan/NewRoadPlan";
 import HealthPlanList from "./Pages/HealthPlanList/HealthPlanList";
 import HousePlanList from "./Pages/HousePlanList/HousePlanList";
-import RoadPlanList from "./Pages/RoadPlanList/RoadPlanList"
+import RoadPlanList from "./Pages/RoadPlanList/RoadPlanList";
 function App() {
   return (
     <Router>
