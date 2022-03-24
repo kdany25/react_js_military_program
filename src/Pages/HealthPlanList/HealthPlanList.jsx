@@ -26,7 +26,7 @@ export default function HealthPlanList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            <img className="userListImg" src="https://i.ibb.co/RYKPGGJ/Healthcare.jpg" alt="" />
+            <img className="userListImg" src="https://i.ibb.co/xqFwFwx/plan.jpg" alt="" />
             {params.row.location}
           </div>
         );
@@ -36,7 +36,7 @@ export default function HealthPlanList() {
     {
       field: "number",
       headerName: "number",
-      width: 150,
+      width: 130,
     },
     {
       field: "period",
@@ -46,17 +46,17 @@ export default function HealthPlanList() {
     {
       field: "desease",
       headerName: "desease",
-      width: 160,
+      width: 140,
     },
     {
         field: "cost",
         headerName: "cost",
-        width: 160,
+        width: 110,
       },
       {
         field: "priority",
         headerName: "priority",
-        width: 160,
+        width: 120,
       },
     {
       field: "action",
@@ -80,9 +80,9 @@ export default function HealthPlanList() {
 
   return (
     <div className="userList">
-      <h1>Patient List</h1>
-      <Link to="/new">
-        <button className="userAddButtons">Add patient</button>
+      <h1>Health Activities</h1>
+      <Link to="/newHealthPlan">
+        <button className="userAddButtons">Add Activity</button>
       </Link>
       <DataGrid
         rows={healthplans}

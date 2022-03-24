@@ -26,7 +26,7 @@ export default function RoadPlanList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            <img className="userListImg" src="https://i.ibb.co/RYKPGGJ/Healthcare.jpg" alt="" />
+            <img className="userListImg" src="https://i.ibb.co/xqFwFwx/plan.jpg" alt="" />
             {params.row.location}
           </div>
         );
@@ -36,7 +36,7 @@ export default function RoadPlanList() {
     {
       field: "kmreached",
       headerName: "KM",
-      width: 150,
+      width: 120,
     },
     {
       field: "period",
@@ -51,12 +51,12 @@ export default function RoadPlanList() {
     {
         field: "cost",
         headerName: "cost",
-        width: 160,
+        width: 120,
       },
       {
         field: "priority",
         headerName: "priority",
-        width: 160,
+        width: 130,
       },
     {
       field: "action",
@@ -80,7 +80,7 @@ export default function RoadPlanList() {
 
   return (
     <div className="userList">
-      <h1>Patient List</h1>
+      <h1>Roads Activities</h1>
       <Link to="/new">
         <button className="userAddButtons">Add plan</button>
       </Link>
