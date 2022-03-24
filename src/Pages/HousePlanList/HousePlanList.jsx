@@ -26,7 +26,7 @@ export default function HousePlanList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            <img className="userListImg" src="https://i.ibb.co/RYKPGGJ/Healthcare.jpg" alt="" />
+            <img className="userListImg" src="https://i.ibb.co/xqFwFwx/plan.jpg" alt="" />
             {params.row.location}
           </div>
         );
@@ -76,9 +76,9 @@ export default function HousePlanList() {
 
   return (
     <div className="userList">
-      <h1>Patient List</h1>
-      <Link to="/new">
-        <button className="userAddButtons">Add patient</button>
+      <h1>House Activities</h1>
+      <Link to="/newHousePlan">
+        <button className="userAddButtons">Add activity</button>
       </Link>
       <DataGrid
         rows={housePlans}
