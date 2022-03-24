@@ -27,16 +27,18 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Health</h3>
           <ul className="sidebarList">
-          <Link to="/health-plan" className="link">
+            <Link to="/health-plan" className="link">
               <li className="sidebarListItem">
-                <PermIdentity className="sidebarIcon" />
+                <span class="material-icons-sharp">
+                  playlist_add_check_circle
+                </span>
                 Health Plans
               </li>
             </Link>
-          <Link to="/newHealthPlan" className="link">
+            <Link to="/newHealthPlan" className="link">
               <li className="sidebarListItem">
-                <PermIdentity className="sidebarIcon" />
-                Health Plan
+                <span class="material-icons-sharp">playlist_add_circle</span>
+                New activity
               </li>
             </Link>
             <Link to="/patients" className="link">
@@ -54,16 +56,18 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Building</h3>
           <ul className="sidebarList">
-          <Link to="/house-plan" className="link">
+            <Link to="/house-plan" className="link">
               <li className="sidebarListItem">
-                <HouseTwoTone className="sidebarIcon" />
+                <span class="material-icons-sharp">
+                  playlist_add_check_circle
+                </span>
                 House Plans
               </li>
             </Link>
-          <Link to="/newHousePlan" className="link">
+            <Link to="/newHousePlan" className="link">
               <li className="sidebarListItem">
-                <HouseTwoTone className="sidebarIcon" />
-                House Plan
+                <span class="material-icons-sharp">playlist_add_circle</span>
+                New activity
               </li>
             </Link>
             <Link to="/houses" className="link">
@@ -82,16 +86,18 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Roads</h3>
           <ul className="sidebarList">
-          <Link to="/road-plan" className="link">
+            <Link to="/road-plan" className="link">
               <li className="sidebarListItem">
-                <HouseRounded className="sidebarIcon" />
+                <span class="material-icons-sharp">
+                  playlist_add_check_circle
+                </span>
                 Roads Plans
               </li>
             </Link>
-          <Link to="/newR" className="link">
+            <Link to="/newR" className="link">
               <li className="sidebarListItem">
-                <HouseRounded className="sidebarIcon" />
-                Roads Plan
+                <span class="material-icons-sharp">playlist_add_circle</span>
+                New activity
               </li>
             </Link>
             <Link to="/roads" className="link">
