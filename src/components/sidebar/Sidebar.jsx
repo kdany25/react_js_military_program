@@ -6,6 +6,7 @@ import {
   DynamicFeed,
   HouseTwoTone,
   HouseRounded,
+  PermPhoneMsg
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -133,6 +134,12 @@ export default function Sidebar() {
             <Link to="/contact" className="link">
               <li className="sidebarListItem">
                 <DynamicFeed className="sidebarIcon" />
+                Contact-Us
+              </li>
+            </Link>
+            <Link to="/feedback" className="link">
+              <li className="sidebarListItem">
+                <PermPhoneMsg className="sidebarIcon" />
                 Feedback
               </li>
             </Link>

@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Sharp");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+
+.feedback {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.contacts .content {
+  /* max-width: 400px; */
+  text-align: left;
+}
+
+.contacts .content h2 {
+  font-size: 3em;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.contacts .content p {
+  font-weight: 500;
+  font-size: 1.2em;
+  opacity: .6;
+}
+
+.feedback .container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.feedback .container button{
+  background: var(--color-primary);
+  margin-right: auto;
+  border: 2px solid whitesmoke;
+  margin: 2em auto 2em 0;
+  padding: .5em 1em;
+  border-radius: .5em;
+  color: white;
+  font-size: 1.3em;
+  transition: all .5s ease;
+  cursor: pointer;
+}
+
+.feedback .container button:hover{
+  opacity: .9;
+}
+
+.question-wrapper{
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.question{
+  margin: .5em 0;
+}
+
+.answer-wrapper{
+  display: flex;
+  margin: .5em 0;
+  cursor: pointer;
+  align-items: center;
+}
+
+.answer-wrapper input,progress{
+  gap: .625rem;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+  margin: .5em .5em .5em 1.5em;
+}
+
+.question-wrapper h2 {
+  font-size: 30px;
+  color: #333;
+  font-weight: 500;
+}
+
+.selectBox {
+  padding: .75em;
+  outline: none;
+  border-radius: 1em;
+  margin-right: auto;
+  margin: 1em auto 1em 0;
+  border: 1px solid var(--color-primary);
+}
+
+.question-wrapper .inputBox {
+  position: relative;
+  width: 20%;
+  margin-left: 1em;
+  /* margin-top: 10px; */
+}
+
+.question-wrapper .inputBox input,
+.question-wrapper .inputBox textarea {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid rgb(136, 131, 131);
+  outline: none;
+  resize: none;
+ 
+}
+
+.question-wrapper .inputBox span {
+  position: absolute;
+  left: 10px;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  pointer-events: none;
+  transition: 0.5s;
+  color: #666;
+}
+.question-wrapper .inputBox input:focus ~ span,
+.question-wrapper .inputBox textarea:focus ~ span {
+  color: var(--color-primary);
+  font-size: 12px;
+  transform: translateY(-20px);
+}
+
+.question-wrapper .inputBox input[type="submit"] {
+  width: 100px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 20px;
+}

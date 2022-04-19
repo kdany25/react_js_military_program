@@ -22,6 +22,8 @@ import NewRoadPlan from "./Pages/RoadPlan/NewRoadPlan";
 import HealthPlanList from "./Pages/HealthPlanList/HealthPlanList";
 import HousePlanList from "./Pages/HousePlanList/HousePlanList";
 import RoadPlanList from "./Pages/RoadPlanList/RoadPlanList";
+import FeedBack from "./Pages/FeeBack/feedback";
+
 function App() {
   return (
     <Router>
@@ -65,6 +67,9 @@ function App() {
             </Route>
             <Route path="/contact">
               <ContactUs />
+            </Route>
+            <Route path="/feedback">
+              <FeedBack />
             </Route>
             <Route path="/newUser">
               <SignUp />
