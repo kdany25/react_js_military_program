@@ -48,7 +48,7 @@ export default function NewHealthPlan() {
         </div>
         <div className="newUserItem">
           <label>Priority</label>
-          <input name="priority"  type="text" placeholder="Kigali | Rwanda" onChange={handleChange}/>
+          <input name="priority"  type="text" placeholder="5" onChange={handleChange}/>
         </div>
         <button onClick={handleClick}  className="newUserButton">Add Health Plan</button>
       </form>

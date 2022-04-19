@@ -65,7 +65,7 @@ export default function NewHousePlan() {
           <input
             name="priority"
             type="text"
-            placeholder="Kigali | Rwanda"
+            placeholder="5"
             onChange={handleChange}
           />
         </div>

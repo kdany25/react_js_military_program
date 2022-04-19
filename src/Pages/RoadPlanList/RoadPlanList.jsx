@@ -152,7 +152,7 @@ export default function RoadPlanList() {
             </form>
           </div>
         <div className="header" >
-            <Link to="/new">
+            <Link to="/newR">
               <button className="userAddButtons">Add plan</button>
             </Link>
             <h5>Total cost of all activities : <strong>{totalCost.toLocaleString()} Rwf</strong> </h5>

@@ -77,8 +77,8 @@ export default function HealthPlanList() {
   const columns = [
     { field: "_id", headerName: "ID", width: 90 },
     {
-      field: "patient",
-      headerName: "patient",
+      field: "Place",
+      headerName: "Place",
       width: 150,
       renderCell: (params) => {
         return (

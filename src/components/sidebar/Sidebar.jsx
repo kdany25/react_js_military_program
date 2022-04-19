@@ -48,10 +48,7 @@ export default function Sidebar() {
                 Patient
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Analytics
-            </li>
+            
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -77,10 +74,7 @@ export default function Sidebar() {
                 House
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Analytics
-            </li>
+            
           </ul>
         </div>
 
@@ -107,10 +101,7 @@ export default function Sidebar() {
                 Roads
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Analytics
-            </li>
+           
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -122,10 +113,6 @@ export default function Sidebar() {
                 Add a User
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Report
-            </li>
           </ul>
         </div>
         <div className="sidebarMenu">
