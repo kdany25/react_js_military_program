@@ -8,11 +8,29 @@
     text-align: center;
     margin-bottom: 1rem;
   }
+
+  .header{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header h5{
+    color: #999;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+
+  .header strong{
+    color: #3bb077;
+  }
   
   .userListUser {
     display: flex;
     align-items: center;
   }
+
   .userAddButtons {
     width: 100px;
     border: none;
@@ -58,3 +76,103 @@
  .pw{
    display: flex;
  }
+
+ .sort-wrapper{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .sort-wrapper form{
+   display: flex;
+   margin-top: 1em;
+ }
+
+ .sort-wrapper input::-webkit-outer-spin-button,
+ input::-webkit-inner-spin-button {
+     /* display: none; <- Crashes Chrome on hover */
+     -webkit-appearance: none;
+     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+ }
+
+ .sort-wrapper input{
+     -moz-appearance:textfield; /* Firefox */
+     outline: none;
+     padding: .5em 1.5em;
+     border-radius: 1em;
+     border: none;
+     box-shadow: 0 0 .2em #3bb077;
+ }
+
+ .sort-wrapper button{
+  box-shadow: 0 0 .2em #3bb077;
+   background: #111;
+   border-radius: 1em;
+   padding: .5em 1.5em;
+   margin-left: 1em;
+   color: #3bb077;
+   font-weight: 600;
+   cursor: pointer;
+   border: none;
+ }
+
+.modal-wrapper{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+}
+
+.modal-wrapper .overlay{
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-wrapper section{
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background: white;
+  border-radius: 1em;
+  animation: Entrance .5s ease-out;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-wrapper section header{
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-wrapper section header p{
+  font-size: 1.2em;
+  opacity: .8;
+}
+
+.modal-wrapper section header p strong {
+  color: #3bb077;
+}
+
+.modal-wrapper section header .closeBtn{
+  color: #3bb077;
+  cursor: pointer;
+}
+
+@keyframes Entrance {
+  0%{
+    opacity: 0;
+    top: 100%;
+  }
+  100%{
+    opacity: 1;
+    top: 50%;
+  }
+}

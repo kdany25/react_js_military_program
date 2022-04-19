@@ -1,22 +1,78 @@
 import "./style.css";
 import { DataGrid } from "@material-ui/data-grid";
-import { DeleteOutline } from "@material-ui/icons";
+import { DeleteOutline, CloseOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePatient, getRoadPlan } from "../../redux/apiCalls";
 
 export default function RoadPlanList() {
   const dispatch = useDispatch();
+  const [ budget,setBudget ] = useState();
+  const [ modalData,setModalData ] = useState();
+  const [ totalCost,setTotalCost ] = useState(0);
+  const [ showModal,setShowModal ] = useState({ status:false,total:0 });
   const roadPlans = useSelector((state) => state.roadplan.roadPlans);
 
   useEffect(() => {
     getRoadPlan(dispatch);
   }, [dispatch]);
+  
+  useEffect(()=>{
+
+    if(roadPlans[0]){
+      let sum = 0;
+
+      for(const one of roadPlans){
+        sum += Number(one.cost)
+      }
+
+      setTotalCost(sum)
+    }
+
+  },[roadPlans])
 
   const handleDelete = (id) => {
     deletePatient(id, dispatch);
   };
+
+  const handleSort = (ev) => {
+    ev.preventDefault();
+    // Sort activities with  
+    let totalSum = 0, newPlans = [];
+    //
+    for(let p=5; p>0; p-- ){
+      // Priority loop
+      for(let i=0; i<roadPlans.length; i++){
+        const plan = roadPlans[i];
+        let newSum = Number(plan.cost) + totalSum;
+        //
+        if( plan.priority === p  && newSum < budget ){
+          totalSum = newSum;
+          newPlans.push(plan)
+        }
+        //
+        if(totalSum > budget){
+          break;
+        }
+      }
+      
+      if(totalSum > budget){
+        break;
+      }
+    }
+    //
+    setModalData(newPlans)
+    toggleModal(totalSum)
+  }
+  
+  const toggleModal = (total) => {
+    setShowModal(prev => ({ 
+      total: total || 0,
+      status: !prev.status 
+    }))
+  }
+
   const columns = [
     { field: "_id", headerName: "ID", width: 90 },
     {
@@ -79,19 +135,60 @@ export default function RoadPlanList() {
   ];
 
   return (
-    <div className="userList">
-      <h1>Roads Activities</h1>
-      <Link to="/new">
-        <button className="userAddButtons">Add plan</button>
-      </Link>
-      <DataGrid
-        rows={roadPlans}
-        disableSelectionOnClick
-        columns={columns}
-        getRowId={(row) => row._id}
-        pageSize={8}
-        checkboxSelection
-      />
-    </div>
+    <>
+      <div className="userList">
+        <h1>Roads Activities</h1>
+        <div className="sort-wrapper" >
+            <p>Calculating labor and material cost, creating timetables with targets goals</p>
+            <form onSubmit={handleSort}>
+              <input 
+                min="1" 
+                type="number" 
+                // value={budget} 
+                placeholder="Enter the amount" 
+                onChange={(ev)=>setBudget(ev.target.value)} 
+              />
+              <button >Calculate</button>
+            </form>
+          </div>
+        <div className="header" >
+            <Link to="/new">
+              <button className="userAddButtons">Add plan</button>
+            </Link>
+            <h5>Total cost of all activities : <strong>{totalCost.toLocaleString()} Rwf</strong> </h5>
+        </div>
+        <DataGrid
+          rows={roadPlans}
+          disableSelectionOnClick
+          columns={columns}
+          getRowId={(row) => row._id}
+          pageSize={8}
+          checkboxSelection
+        />
+      </div>
+      {
+          showModal.status &&
+          <div className="modal-wrapper">
+            <div className="overlay" onClick={toggleModal} />
+            <section>    
+              <header className="header">
+                <p> 
+                  <strong>{modalData.length}</strong> of <strong>{roadPlans.length}</strong>  activities are eligible, worth <strong>{showModal.total} M</strong> of  a <strong>{budget} M</strong> Budget
+                </p>  
+                <CloseOutlined className="closeBtn" onClick={toggleModal} />
+              </header>  
+              <DataGrid
+                  rows={modalData}
+                  disableSelectionOnClick
+                  columns={columns}
+                  getRowId={(row) => row._id}
+                  pageSize={8}
+                  style={{ flex:1 }}
+                  checkboxSelection
+                />
+            </section>
+          </div>
+        }
+    </>
   );
 }
