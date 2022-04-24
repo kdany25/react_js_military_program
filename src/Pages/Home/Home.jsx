@@ -1,51 +1,350 @@
-import Chart from "../../components/chart/Chart";
-import FeaturedInfo from "../../components/Insights/Insights";
+// import Chart from "../../components/chart/Chart";
+// import Daily from "../../components/daily/Daily";
+// import FeaturedInfo from "../../components/Insights/Insights";
 import "./home.css";
-import { userData } from "../../dummyData";
-import Daily from "../../components/daily/Daily";
-import { useEffect, useMemo, useState } from "react";
+import { MdHouse, MdLocalHospital } from 'react-icons/md'
+import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
+import { GiRoad } from 'react-icons/gi'
+import React,{ useEffect, useState } from "react";
 import { userRequest } from "../../requestMethod";
-import Recent from "../../components/Recent/Recent"
+import { useDispatch, useSelector } from "react-redux";
+import { getHealthPlan, getHousePlan, getRoadPlan } from "../../redux/apiCalls";
+import { DataGrid } from "@material-ui/data-grid";
+
+const survey = {
+  health: [
+    {
+      'Have you been treated ?':'Yes',
+      'Have you completely recoverd from the illness ?':'No',
+      'Do you have medicial checkups, either : Random or Periodic':"Random"
+    }
+  ],
+  building: [
+    {
+      'Is the construction complete ?':"NO",
+      'How would you rate our service form 1 to 10': 5,
+      'What type of construction was it ':'From the ground-up',
+      'Do you have any other comment, or suggestion':'N/A'
+    }
+  ],
+  roads: [
+    {
+      'Is the construction complete ?':'yes',
+      'What type of construction was it ':'Transformation',
+      'How would you rate our service form 1 to 10':10,
+      'Do you have any other comment, or suggestion':"You could work on you service"
+    }
+  ],
+}
+const WEEKS = ["week 6", "week 7"]
+
+const FeebackView = ({ data,sector }) => {
+  const [ show,setShow ] = useState(false)
+
+  return(
+    <div 
+      onClick={() => setShow(prev => !prev)} 
+      className={`feedback ${ show ? 'expanded' : ""}`}
+    >
+      <h4>{sector}</h4>
+      <ul>
+        {
+          React.Children.toArray(
+            Object.entries(data).map(([question,answer]) => (
+              <li> {question} : <strong>{answer}</strong> </li>
+            ))
+          )
+        }
+      </ul>
+      {
+        show ?
+          <BiChevronUp size={30} className="Qbtn" />:
+          <BiChevronDown size={30} className="Qbtn" />
+      }
+      { !show && <div className="overlay" />}
+    </div>
+  )
+}
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const [data, setData] = useState({ content:[], status:'' });
   const [userStats, setUserStats] = useState([]);
-
-  const WEEKS = useMemo(
-    () => [
-     
-      "week 6",
-      "week 7",
-     
-    ],
-    []
-  );
+  const [patients, setPatients] = useState([]);
+  const [houses, setHouses] = useState([]);
+  const [roads, setRoads] = useState([]);
+  // Percentages
+  const [healthPerc, setHealthPerc] = useState(0);
+  const [housePerc, setHousePerc] = useState(0);
+  const [roadPerc, setRoadPerc] = useState(0);
+  // Totals
+  const [healthTotal, setHealthTotal] = useState(0);
+  const [houseTotal, setHouseTotal] = useState(0);
+  const [roadTotal, setRoadTotal] = useState(0);
+  // Actions
+  const healthplans = useSelector((state) => state.healthplan.healthPlans);
+  const housePlans = useSelector((state) => state.houseplan.housePlans);
+  const roadPlans = useSelector((state) => state.roadplan.roadPlans);
 
   useEffect(() => {
-    const getStats = async () => {
-      try {
-        const res = await userRequest.get("/Health/week/patient");
-        res.data.map((item) =>
-          setUserStats((prev) => [
-            ...prev,
-            { name:WEEKS[item._id - 1], "Active User": item.total },
-          ])
-        );
-      } catch {}
-    };
-    getStats();
-  }, [WEEKS]);
+    getHealthPlan(dispatch);
+    getHousePlan(dispatch);
+    getRoadPlan(dispatch);
+  }, [dispatch]);
+
+  useEffect(()=>{
+    if(healthplans[0] && !healthTotal){
+      let sum = 0;
+
+      for(const one of healthplans){
+        sum += Number(one.cost)
+      }
+
+      setHealthTotal(sum)
+      setData({ content: healthplans, status: 'health' })
+    }
+
+    if(roadPlans[0] && !roadTotal){
+      let sum = 0;
+
+      for(const one of roadPlans){
+        sum += Number(one.cost)
+      }
+
+      setRoadTotal(sum)
+    }
+
+    if(housePlans[0] && !houseTotal){
+      let sum = 0;
+
+      for(const one of housePlans){
+        sum += Number(one.cost)
+      }
+
+      setHouseTotal(sum)
+    }
+
+
+  },[healthplans,housePlans,roadPlans])
+
+  useEffect(() => {
+    // (async () => {
+    //     const res = await userRequest.get("/Health/week/patient");
+    //     //
+    //     if(res && !userStats[0])
+    //     for(const one of res.data){
+    //       setUserStats((prev) => [
+    //         ...prev,
+    //         { name: WEEKS[one._id - 6], "Active User": one.total },
+    //       ])
+    //     }
+
+    // })()
+    // ================
+    (async () => {
+      //
+      const requests = [
+        userRequest.get("Health/count/all"),    // health N
+        userRequest.get("Health/week/patient"), // Health $
+        userRequest.get("house/count/all"),  // House N
+        userRequest.get("house/week/patient"),  // House $
+        userRequest.get("roads/week/sum"),      // Road #Km
+        userRequest.get("roads/week/patient"),  // Roads $
+      ]
+
+      const calculator = (data) => Math.floor((data[0].total * 100) / data[1].total - 100)
+      const [ health, healthIncome, house, houseIncome, Road, RoadIcome  ] = await Promise.all(requests);
+
+      // Health
+      setPatients(health.data); console.log("$$$$$$$$$$$$",health.data)
+      let data = healthIncome.data.sort((a, b) => (a._id < b._id) ? 1 : -1)
+      setHealthPerc(calculator(data));
+
+      // House
+      setHouses(house.data); console.log("++++++++++++++++",houseIncome.data)
+      data = houseIncome.data.sort((a, b) => (a._id < b._id) ? 1 : -1)
+      // setHousePerc(calculator(data));
+
+      // // Roads
+      setRoads(Road.data[0].total); console.log("==============",Road.data)
+      data = RoadIcome.data.sort((a, b) => (a._id < b._id) ? 1 : -1)
+      setRoadPerc(calculator(data))
+    })()
+  },[]);
+
+  const columns = [
+    {
+      field: "location",
+      headerName: "District",
+      width:150
+    },
+    {
+      field: "number",
+      headerName: "Number",
+      width: 130,
+    },
+    {
+      field: "period",
+      headerName: "Period",
+      width: 120,
+    },
+    {
+      field: "cost",
+      headerName: "Cost",
+      width: 110,
+    },
+  ];
+  
+  const RoadColumns = [
+    {
+      field: "location",
+      headerName: "District",
+      width:150
+    },
+    {
+      field: "kmreached",
+      headerName: "Distance in KM",
+      width: 120,
+    },
+    {
+      field: "engineer",
+      headerName: "engineer",
+      width: 160,
+    },
+    {
+      field: "period",
+      headerName: "period",
+      width: 120,
+    },
+    {
+      field: "cost",
+      headerName: "Cost",
+      width: 110,
+    },
+  ];
+  
   return (
-    <div className="home">
-      <FeaturedInfo />
+    <div className="dashboard">
+      {/* <FeaturedInfo />
       <div className="homec">
-      <Chart
-        data={userStats}
-        title="User Analytics"
-        grid
-        dataKey="Active User"
-      />
-      <Daily/>
+        <Chart
+          data={userStats}
+          title="User Analytics"
+          grid
+          dataKey="Active User"
+        />
+        <Daily/>
+      </div> */}
+      <div className="parent">
+        <div className="header-wrapper">
+          <img src={require('./rdf.ico')} alt=""  className="icon"/>
+          <section>
+            <div>
+              <h1>Finacial</h1>
+              <p className="label">Aug 1, 2021 - Nov 1,2021</p>
+              <div className="content">
+                <strong>Total Revenue <span>+9.78%</span> </strong>
+                <h2>{(healthTotal + roadTotal + houseTotal).toLocaleString()} RWF</h2>
+                <p className="label">Increased {( housePerc + healthTotal + roadPerc )}% compared to last month</p>
+              </div>
+            </div>
+          </section>
+          <hr />
+          <section>
+            <div className="sector_wrapper">
+              <h5> Health Sector </h5>
+              <h3>{(healthTotal).toLocaleString()} RWF</h3>
+              <p className="label">{patients} Patients Treated</p>
+            </div>
+            <div className="divider" />
+            <div className="sector_wrapper">
+              <h5> Housing Sector </h5>
+              <h3>{(houseTotal).toLocaleString()} RWF</h3>
+              <p className="label">{houses} House Built</p>
+            </div>
+            <div className="divider" />
+            <div className="sector_wrapper">
+              <h5> Roads Sector </h5>
+              <h3>{(roadTotal).toLocaleString()} RWF</h3>
+              <p className="label">{roads}Km Road Built</p>
+            </div>
+          </section>
+        </div>
+        <div className="events">
+          <h2>Upcoming events</h2> 
+          <div className="spacer" />
+          <div className="event">
+            <div className="icon_wrapper">
+              <MdLocalHospital className="icon" />
+            </div>
+            <div className="content">
+              <h4>Health Out-Reach </h4>
+              <label>working on</label>
+            </div>
+            <label>08:30 AM</label>
+          </div>
+          <div className="event">
+            <div className="icon_wrapper">
+              <MdHouse className="icon" />
+            </div>
+            <div className="content">
+              <h4>Housing Out-Reach </h4>
+              <label>working on</label>
+            </div>
+            <label>08:30 AM</label>
+          </div>
+          <div className="event">
+            <div className="icon_wrapper">
+              <GiRoad className="icon" />
+            </div>
+            <div className="content">
+              <h4>Roads Out-Reach </h4>
+              <label>working on</label>
+            </div>
+            <label>08:30 AM</label>
+          </div>
+          <button onClick={()=> alert('Coming Soon')}>
+            See all activities
+          </button>
+
+        </div>
       </div>
+      <div className="spacer" />
+      <div className="parent" style={{ justifyContent:'space-between' }} >
+        <div className="table">
+          <div className="navs">
+            <h6>Activities</h6>
+            <h6 
+              className={` ${ data.status === 'health' ? 'active' : '' } `} 
+              onClick={() => setData({ content:healthplans,status:"health" })}
+              >Health</h6>
+            <h6
+              className={` ${ data.status === 'house' ? 'active' : '' } `}  
+              onClick={() => setData({ content:housePlans,status:"house" })}
+            >Housing</h6>
+            <h6
+              className={` ${ data.status === 'roads' ? 'active' : '' } `} 
+              onClick={() => setData({ content:roadPlans,status:"roads" })}
+              >Road</h6>
+          </div>
+          <DataGrid
+            columns={ data.status === 'roads' ? RoadColumns : columns}
+            rows={data.content}
+            getRowId={(row) => row._id}
+          />
+        </div>
+        <div className="feedback-wrapper">
+          <h3>User Feedbacks</h3>
+          {
+            React.Children.toArray(
+              Object.entries(survey).map(([ sector,value ]) => 
+                value.map( data => <FeebackView sector={sector} data={data} />)
+              )
+            )
+          }
+        </div>
+      </div>
+      
     </div>
   );
 }

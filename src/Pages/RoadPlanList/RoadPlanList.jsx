@@ -88,7 +88,6 @@ export default function RoadPlanList() {
         );
       },
     },
-
     {
       field: "kmreached",
       headerName: "KM",

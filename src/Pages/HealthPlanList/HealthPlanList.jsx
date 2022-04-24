@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePatient, getHealthPlan } from "../../redux/apiCalls";
-import { Modal } from "@material-ui/core";
 
 export default function HealthPlanList() {
   const dispatch = useDispatch();
