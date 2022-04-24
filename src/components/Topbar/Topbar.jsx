@@ -16,7 +16,7 @@ export default function Topbar() {
           </div>
           
           
-          <img src="https://i.ibb.co/NWGzRZW/recent1.png" alt="" className="topAvatar" />
+          <img src="./rdf.ico" alt="" className="topAvatar" />
         </div>
       </div>
     </div>

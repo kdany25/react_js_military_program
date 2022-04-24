@@ -2,7 +2,6 @@ import "./sidebar.css";
 import {
   LineStyle,
   PermIdentity,
-  BarChart,
   DynamicFeed,
   HouseTwoTone,
   HouseRounded,

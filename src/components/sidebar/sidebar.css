@@ -17,7 +17,7 @@
   }
   
   .sidebarMenu {
-    margin-bottom: 10px;
+    margin-bottom: 1em;
   }
   
   .sidebarTitle {
@@ -31,16 +31,16 @@
   }
   
   .sidebarListItem {
-    padding: 5px;
+    padding: 5px 1em;
     cursor: pointer;
     display: flex;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 1em;
   }
   
   .sidebarListItem.active,
   .sidebarListItem:hover {
-    background-color: rgb(240, 240, 255);
+    background-color: #6d8a5c6e;
   }
   
   .sidebarIcon{

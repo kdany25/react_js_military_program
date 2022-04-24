@@ -1,10 +1,296 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Sharp");
-.home{
-    flex: 4;
+.dashboard {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+  padding: 1em;
 }
 
-.homec{
-    display: flex;
-    margin: 20px;
+.dashboard .parent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
+.dashboard .events {
+  -webkit-box-flex: .35;
+      -ms-flex: .35;
+          flex: .35;
+  margin-left: 5%;
+}
+
+.dashboard .events h2 {
+  color: #6d8a5c;
+}
+
+.dashboard .events .event {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1em 0;
+  width: 100%;
+}
+
+.dashboard .events .event .icon_wrapper {
+  padding: 10px;
+  padding-bottom: 5px;
+  border-radius: 5em;
+  border: 1px solid lightgrey;
+  background: white;
+}
+
+.dashboard .events .event .icon_wrapper .icon {
+  color: #6d8a5c;
+}
+
+.dashboard .events .event .content {
+  -webkit-box-flex: .8;
+      -ms-flex: .8;
+          flex: .8;
+}
+
+.dashboard .events .event label {
+  color: grey !important;
+}
+
+.dashboard .events button {
+  border: none;
+  padding: 1em;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 15%;
+  border-radius: 2em;
+  background: green;
+  -webkit-box-shadow: 0em .5em .5em #6d8a5c41;
+          box-shadow: 0em .5em .5em #6d8a5c41;
+}
+
+.dashboard .header-wrapper {
+  -webkit-box-flex: .52;
+      -ms-flex: .52;
+          flex: .52;
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  background: white;
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 1em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid lightgrey;
+}
+
+.dashboard .header-wrapper .icon {
+  position: absolute;
+  right: 0%;
+  top: 2.5%;
+  width: 40%;
+}
+
+.dashboard .header-wrapper section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.dashboard .header-wrapper section h1 {
+  font-size: 1.5em;
+}
+
+.dashboard .header-wrapper section .label {
+  color: grey;
+}
+
+.dashboard .header-wrapper section strong {
+  color: grey;
+}
+
+.dashboard .header-wrapper section strong span {
+  color: #88ad73 !important;
+}
+
+.dashboard .header-wrapper section .content {
+  margin-top: 2em;
+}
+
+.dashboard .header-wrapper section .content h2 {
+  font-size: 2em;
+}
+
+.dashboard .header-wrapper section .sector_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard .header-wrapper section .sector_wrapper h5 {
+  color: #6d8a5c;
+  font-size: 1.1em;
+  margin-bottom: .5em;
+}
+
+.dashboard .header-wrapper section .divider {
+  margin: 0 2em;
+  border: .5px solid lightgrey;
+  background: blue;
+}
+
+.dashboard .header-wrapper hr {
+  margin: 1em 0;
+  border: .5px solid lightgrey;
+}
+
+.dashboard .table {
+  -webkit-box-flex: .5;
+      -ms-flex: .5;
+          flex: .5;
+}
+
+.dashboard .table .navs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard .table .navs h6 {
+  cursor: pointer;
+  color: grey;
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: -0.5em 1em .5em 0;
+  padding: 0 1em .5em 0;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.dashboard .table .navs h6:first-child {
+  margin-right: auto;
+  opacity: .5;
+}
+
+.dashboard .table .navs h6:hover {
+  color: black;
+}
+
+.dashboard .table .navs .active {
+  color: #6d8a5c;
+  border-bottom: 2px solid #6d8a5c;
+}
+
+.dashboard .table .navs .active:hover {
+  color: #6d8a5c;
+}
+
+.dashboard .feedback-wrapper {
+  -webkit-box-flex: .45;
+      -ms-flex: .45;
+          flex: .45;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.dashboard .feedback-wrapper .feedback {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #6d8a5c20;
+  border-radius: .5em;
+  margin: 1em 0;
+  padding: 1em;
+  position: relative;
+  overflow: hidden;
+  max-height: 5vh;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  cursor: pointer;
+  -webkit-box-shadow: 0em .5em .5em #6d8a5c20;
+          box-shadow: 0em .5em .5em #6d8a5c20;
+}
+
+.dashboard .feedback-wrapper .feedback .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(whitesmoke));
+  background: linear-gradient(transparent, whitesmoke);
+}
+
+.dashboard .feedback-wrapper .feedback h4 {
+  color: #6d8a5c;
+  text-transform: capitalize;
+}
+
+.dashboard .feedback-wrapper .feedback ul {
+  list-style: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.dashboard .feedback-wrapper .feedback ul li {
+  font-size: 1.1em;
+  margin-bottom: .5em;
+}
+
+.dashboard .feedback-wrapper .feedback .closer {
+  position: relative;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.dashboard .expanded {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  min-height: 20vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.spacer {
+  margin: 2em;
+}
+/*# sourceMappingURL=home.css.map */
