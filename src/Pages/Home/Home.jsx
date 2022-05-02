@@ -11,33 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getHealthPlan, getHousePlan, getRoadPlan } from "../../redux/apiCalls";
 import { DataGrid } from "@material-ui/data-grid";
 
-const survey = {
-  health: [
-    {
-      'Have you been treated ?':'Yes',
-      'Have you completely recoverd from the illness ?':'No',
-      'Do you have medicial checkups, either : Random or Periodic':"Random"
-    }
-  ],
-  building: [
-    {
-      'Is the construction complete ?':"NO",
-      'How would you rate our service form 1 to 10': 5,
-      'What type of construction was it ':'From the ground-up',
-      'Do you have any other comment, or suggestion':'N/A'
-    }
-  ],
-  roads: [
-    {
-      'Is the construction complete ?':'yes',
-      'What type of construction was it ':'Transformation',
-      'How would you rate our service form 1 to 10':10,
-      'Do you have any other comment, or suggestion':"You could work on you service"
-    }
-  ],
-}
-const WEEKS = ["week 6", "week 7"]
-
 const FeebackView = ({ data,sector }) => {
   const [ show,setShow ] = useState(false)
 
@@ -69,7 +42,7 @@ const FeebackView = ({ data,sector }) => {
 export default function Home() {
   const dispatch = useDispatch();
   const [data, setData] = useState({ content:[], status:'' });
-  const [userStats, setUserStats] = useState([]);
+  const [Feedbacks, setFeedback] = useState([]);
   const [patients, setPatients] = useState([]);
   const [houses, setHouses] = useState([]);
   const [roads, setRoads] = useState([]);
@@ -90,6 +63,15 @@ export default function Home() {
     getHealthPlan(dispatch);
     getHousePlan(dispatch);
     getRoadPlan(dispatch);
+    //
+    const url = 'https://rwandamilitary-op.herokuapp.com/api/feedback';
+    fetch(url)
+    .then(res => res.json())
+    .then(res => {
+      if(res.status === 200){
+        setFeedback(res.data)
+      }
+    })
   }, [dispatch]);
 
   useEffect(()=>{
@@ -130,7 +112,7 @@ export default function Home() {
   useEffect(() => {
     // (async () => {
     //     const res = await userRequest.get("/Health/week/patient");
-    //     //
+    //
     //     if(res && !userStats[0])
     //     for(const one of res.data){
     //       setUserStats((prev) => [
@@ -156,17 +138,14 @@ export default function Home() {
       const [ health, healthIncome, house, houseIncome, Road, RoadIcome  ] = await Promise.all(requests);
 
       // Health
-      setPatients(health.data); console.log("$$$$$$$$$$$$",health.data)
       let data = healthIncome.data.sort((a, b) => (a._id < b._id) ? 1 : -1)
       setHealthPerc(calculator(data));
 
       // House
-      setHouses(house.data); console.log("++++++++++++++++",houseIncome.data)
       data = houseIncome.data.sort((a, b) => (a._id < b._id) ? 1 : -1)
       // setHousePerc(calculator(data));
 
-      // // Roads
-      setRoads(Road.data[0].total); console.log("==============",Road.data)
+      // Roads
       data = RoadIcome.data.sort((a, b) => (a._id < b._id) ? 1 : -1)
       setRoadPerc(calculator(data))
     })()
@@ -336,11 +315,12 @@ export default function Home() {
         <div className="feedback-wrapper">
           <h3>User Feedbacks</h3>
           {
+            Feedbacks[0] ?
             React.Children.toArray(
-              Object.entries(survey).map(([ sector,value ]) => 
-                value.map( data => <FeebackView sector={sector} data={data} />)
+              Feedbacks.map((one) => 
+                <FeebackView sector={one.title} data={JSON.parse(one.data)} />
               )
-            )
+            ) : (<strong style={{textAlign:'center'}}>Loading...</strong>)
           }
         </div>
       </div>

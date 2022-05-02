@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./feedback.css";
 
 const survey = {
@@ -47,12 +47,51 @@ const survey = {
 }
 
 export default function FeedBack() {
-  const [ results,setResults ] = useState({})
   const [ title,setTitle ] = useState()
+  const [ results,setResults ] = useState({})
+  const [ loading,setLoader ] = useState(false)
+  const [ success,setSuccess ] = useState(false)
+
+  useEffect(() => {
+    if(success)
+    setSuccess(false)
+    if(loading)
+    setLoader(false)
+  },[results,title])
 
 
-  const handleSubmit = () => {
-    console.log(results)
+  const handleSubmit = async () => {
+
+    if(Object.keys(results).length !== survey[title].length ){
+      return alert("Fill in the missing fields")
+    }
+
+    const payload = {
+      title,
+      data:JSON.stringify(results),
+      entry_id:Math.random().toString(36).substring(2,10+2)
+    }
+
+    const url = 'https://rwandamilitary-op.herokuapp.com/api/feedback' 
+
+    setLoader(true)
+    fetch(url,{
+      method:'POST',
+      headers:{
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.json())
+    .then(res => {
+      if(res.status === 201){
+        setSuccess(true)
+      }
+    })
+    .catch(() => alert("ACcreate Failure"))
+    .finally(() => setLoader(false))
+    
   }
 
   return (
@@ -122,7 +161,7 @@ export default function FeedBack() {
               ))
             )
         }
-        { title && <button onClick={handleSubmit}>SUBMIT</button>}
+        { title && <button onClick={handleSubmit}>{ success ? 'done' : !loading ? 'SUBMIT' : '...'}</button>}
       </div>
     </section>
   );
