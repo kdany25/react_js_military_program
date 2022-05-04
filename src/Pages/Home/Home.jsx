@@ -10,6 +10,7 @@ import { userRequest } from "../../requestMethod";
 import { useDispatch, useSelector } from "react-redux";
 import { getHealthPlan, getHousePlan, getRoadPlan } from "../../redux/apiCalls";
 import { DataGrid } from "@material-ui/data-grid";
+import {BASE_URL} from "../../requestMethod"
 
 const FeebackView = ({ data,sector }) => {
   const [ show,setShow ] = useState(false)
@@ -64,7 +65,7 @@ export default function Home() {
     getHousePlan(dispatch);
     getRoadPlan(dispatch);
     //
-    const url = 'https://rwandamilitary-op.herokuapp.com/api/feedback';
+    const url = `${BASE_URL}/feedback`;
     fetch(url)
     .then(res => res.json())
     .then(res => {
