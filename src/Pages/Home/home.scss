@@ -127,6 +127,7 @@ $second: #d1bc71;
 
     .table{
         flex: .5;
+        min-height: 30vh;
         .navs{
             display: flex;
             align-items: center;
@@ -159,6 +160,7 @@ $second: #d1bc71;
     .feedback-wrapper{
         flex: .45;
         height: fit-content;
+        min-height: 30vh;
         transition: all .5s ease;
         .feedback{
             display: flex;

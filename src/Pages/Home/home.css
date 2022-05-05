@@ -166,6 +166,7 @@
   -webkit-box-flex: .5;
       -ms-flex: .5;
           flex: .5;
+  min-height: 30vh;
 }
 
 .dashboard .table .navs {
@@ -213,6 +214,7 @@
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  min-height: 30vh;
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
 }
