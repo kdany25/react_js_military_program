@@ -220,12 +220,12 @@ export default function Home() {
           <img src={require('./rdf.ico')} alt=""  className="icon"/>
           <section>
             <div>
-              <h1>Finacial</h1>
-              <p className="label">Aug 1, 2021 - Nov 1,2021</p>
+              <h1>Budget planning</h1>
+              <p className="label">Jan 1, 2022 - Dec 31,2022</p>
               <div className="content">
-                <strong>Total Revenue <span>+9.78%</span> </strong>
+                <strong>Total Amount <span>+9.78%</span> </strong>
                 <h2>{(healthTotal + roadTotal + houseTotal).toLocaleString()} RWF</h2>
-                <p className="label">Increased {( housePerc + healthTotal + roadPerc )}% compared to last month</p>
+                {/* <p className="label">Increased {( housePerc + healthTotal + roadPerc )}% compared to last month</p> */}
               </div>
             </div>
           </section>
@@ -234,19 +234,19 @@ export default function Home() {
             <div className="sector_wrapper">
               <h5> Health Sector </h5>
               <h3>{(healthTotal).toLocaleString()} RWF</h3>
-              <p className="label">{patients} Patients Treated</p>
+              <p className="label">234 Patients Treated</p>
             </div>
             <div className="divider" />
             <div className="sector_wrapper">
               <h5> Housing Sector </h5>
               <h3>{(houseTotal).toLocaleString()} RWF</h3>
-              <p className="label">{houses} House Built</p>
+              <p className="label">31 House Built</p>
             </div>
             <div className="divider" />
             <div className="sector_wrapper">
               <h5> Roads Sector </h5>
               <h3>{(roadTotal).toLocaleString()} RWF</h3>
-              <p className="label">{roads}Km Road Built</p>
+              <p className="label">12.3 Km Road Built</p>
             </div>
           </section>
         </div>
@@ -259,7 +259,7 @@ export default function Home() {
             </div>
             <div className="content">
               <h4>Health Out-Reach </h4>
-              <label>working on</label>
+              <label>Sunday, 15th May</label>
             </div>
             <label>08:30 AM</label>
           </div>
@@ -269,7 +269,7 @@ export default function Home() {
             </div>
             <div className="content">
               <h4>Housing Out-Reach </h4>
-              <label>working on</label>
+              <label>Tuesday, 17th May</label>
             </div>
             <label>08:30 AM</label>
           </div>
@@ -279,7 +279,7 @@ export default function Home() {
             </div>
             <div className="content">
               <h4>Roads Out-Reach </h4>
-              <label>working on</label>
+              <label>Friday, 20th May</label>
             </div>
             <label>08:30 AM</label>
           </div>
