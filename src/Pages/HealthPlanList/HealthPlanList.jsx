@@ -173,7 +173,7 @@ export default function HealthPlanList() {
           <section>    
             <header className="header">
               <p> 
-                <strong>{modalData.length}</strong> of <strong>{healthplans.length}</strong>  activities are eligible, worth <strong>{showModal.total}</strong> of  a <strong>{budget}</strong> Budget
+                <strong>{modalData.length}</strong> of <strong>{healthplans.length}</strong> activities are eligible, worth <strong>{showModal.total}</strong> of  a <strong>{budget}</strong> Budget
               </p>  
               <CloseOutlined className="closeBtn" onClick={toggleModal} />
             </header>  
