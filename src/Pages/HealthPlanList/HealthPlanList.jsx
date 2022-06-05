@@ -122,7 +122,7 @@ export default function HealthPlanList() {
         return (
           <>
             <Link to={"/Health/" + params.row._id}>
-              <button className="userListEdit">Edit</button>
+              <button className="userListEdit">Update</button>
             </Link>
             <DeleteOutline
               className="userListDelete"
