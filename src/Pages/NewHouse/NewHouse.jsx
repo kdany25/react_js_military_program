@@ -61,6 +61,10 @@ export default function NewHouse() {
 						onChange={handleChange}
 					/>
 				</div>
+				<div className="newUserItem">
+					<label>Cost</label>
+					<input name="cost" type="text" onChange={handleChange} />
+				</div>
 
 				<div className="newUserItem">
 					<label>New House</label>

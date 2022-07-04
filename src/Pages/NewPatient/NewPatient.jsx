@@ -81,6 +81,14 @@ export default function NewPatient() {
 					/>
 				</div>
 				<div className="newUserItem">
+					<label>Cost</label>
+					<input
+						name="cost"
+						type="text"
+						onChange={handleChange}
+					/>
+				</div>
+				<div className="newUserItem">
 					<label>Gender</label>
 					<div className="newUserGender">
 						<input
