@@ -32,84 +32,83 @@ import HealthPlanPro from "./Pages/UpdateHealthPlan/UpdateHealthPlan";
 import { useSelector } from "react-redux";
 
 function App() {
-	const user = useSelector((state) => state.user.currentUser);
+	const user = useSelector((state) => state.user.currentUser?._id);
 	return (
 		<Router>
 			<Switch>
-				<Route path="/login">
-					<Login />
-				</Route>
-				<>
-					<Topbar />
-					<div className="container">
-						<Sidebar />
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/patients">
-							<PatientList />
-						</Route>
-						<Route exact path="/roads">
-							<RoadList />
-						</Route>
-						<Route path="/Health/:userId">
-							<Patient />
-						</Route>
-						<Route path="/roads/:userId">
-							<Road />
-						</Route>
-						<Route path="/house/:Id">
-							<HousePro />
-						</Route>
-						<Route path="/healthPlan/:Id">
-							<HealthPlanPro />
-						</Route>
-						<Route path="/new">
-							<NewP />
-						</Route>
-						<Route path="/newroad">
-							<NewRoad />
-						</Route>
-						<Route path="/houses">
-							<Houses />
-						</Route>
-						<Route path="/newHouse">
-							<NewHouse />
-						</Route>
-						<Route path="/contact">
-							<ContactUs />
-						</Route>
-						<Route path="/feedback">
-							<FeedBack />
-						</Route>
-						<Route path="/newUser">
-							<SignUp />
-						</Route>
-						<Route path="/newHealthPlan">
-							<NewHealthplan />
-						</Route>
-						<Route path="/newHousePlan">
-							<NewHousePlan />
-						</Route>
+				{user ? (
+					<>
+						<Topbar />
+						<div className="container">
+							<Sidebar />
+							<Route exact path="/">
+								<Home />
+							</Route>
+							<Route exact path="/patients">
+								<PatientList />
+							</Route>
+							<Route exact path="/roads">
+								<RoadList />
+							</Route>
+							<Route path="/Health/:userId">
+								<Patient />
+							</Route>
+							<Route path="/roads/:userId">
+								<Road />
+							</Route>
+							<Route path="/house/:Id">
+								<HousePro />
+							</Route>
+							<Route path="/healthPlan/:Id">
+								<HealthPlanPro />
+							</Route>
+							<Route path="/new">
+								<NewP />
+							</Route>
+							<Route path="/newroad">
+								<NewRoad />
+							</Route>
+							<Route path="/houses">
+								<Houses />
+							</Route>
+							<Route path="/newHouse">
+								<NewHouse />
+							</Route>
+							<Route path="/contact">
+								<ContactUs />
+							</Route>
+							<Route path="/feedback">
+								<FeedBack />
+							</Route>
+							<Route path="/newUser">
+								<SignUp />
+							</Route>
+							<Route path="/newHealthPlan">
+								<NewHealthplan />
+							</Route>
+							<Route path="/newHousePlan">
+								<NewHousePlan />
+							</Route>
 
-						<Route path="/newR">
-							<NewRoadPlan />
-						</Route>
-						<Route path="/health-plan">
-							<HealthPlanList />
-						</Route>
-						<Route path="/house-plan">
-							<HousePlanList />
-						</Route>
-						<Route path="/road-plan">
-							<RoadPlanList />
-						</Route>
-					</div>
-					{/* <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
-        <Route path="/sign Up">
-          {user ? <Redirect to="/" /> : <Login />}
-        </Route> */}
-				</>
+							<Route path="/newR">
+								<NewRoadPlan />
+							</Route>
+							<Route path="/health-plan">
+								<HealthPlanList />
+							</Route>
+							<Route path="/house-plan">
+								<HousePlanList />
+							</Route>
+							<Route path="/road-plan">
+								<RoadPlanList />
+							</Route>
+						</div>
+					</>
+				) : (
+					<Route path="/">
+						<FeedBack />
+					</Route>
+				)}
 			</Switch>
 		</Router>
 	);

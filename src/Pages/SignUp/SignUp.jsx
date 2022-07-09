@@ -83,12 +83,7 @@ const SignUp = () => {
 						type="text"
 						onChange={handleChange}
 					/>
-					<Input
-						placeholder="username"
-						name="username"
-						type="text"
-						onChange={handleChange}
-					/>
+					<Input placeholder="username" name="username" type="text" />
 					<Input
 						placeholder="email"
 						name="email"

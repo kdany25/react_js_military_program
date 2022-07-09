@@ -59,5 +59,6 @@ export const {
 	addUserStart,
 	addUserSuccess,
 	addUserFailure,
+	logout
 } = userSlice.actions;
 export default userSlice.reducer;
