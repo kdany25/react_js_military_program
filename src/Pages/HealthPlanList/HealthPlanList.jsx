@@ -4,7 +4,7 @@ import { DeleteOutline, CloseOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePatient, getHealthPlan } from "../../redux/apiCalls";
+import { deleteHealthPlan, getHealthPlan } from "../../redux/apiCalls";
 
 export default function HealthPlanList() {
 	const dispatch = useDispatch();
@@ -31,7 +31,7 @@ export default function HealthPlanList() {
 	}, [healthplans]);
 
 	const handleDelete = (id) => {
-		deletePatient(id, dispatch);
+		deleteHealthPlan(id, dispatch);
 	};
 
 	const handleSort = (ev) => {

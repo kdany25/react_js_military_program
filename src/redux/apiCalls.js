@@ -61,6 +61,9 @@ import {
 	addHousePlanStart,
 	addHousePlanSuccess,
 	addHousePlanFailure,
+	deleteHousePlanStart,
+	deleteHousePlanSuccess,
+	deleteHousePlanFailure,
 } from "./housePlanRedux";
 
 import {
@@ -70,6 +73,9 @@ import {
 	addHealthPlanStart,
 	addHealthPlanSuccess,
 	addHealthPlanFailure,
+	deleteHealthPlanStart,
+	deleteHealthPlanSuccess,
+	deleteHealthPlanFailure,
 } from "./healthPlanRedux";
 
 import {
@@ -79,6 +85,9 @@ import {
 	addRoadPlanStart,
 	addRoadPlanSuccess,
 	addRoadPlanFailure,
+	deleteRoadPlanStart,
+	deleteRoadPlanSuccess,
+	deleteRoadPlanFailure,
 } from "./roadPlanRedux";
 
 //login
@@ -218,6 +227,17 @@ export const getHousePlan = async (dispatch) => {
 		dispatch(getHousePlanFailure());
 	}
 };
+//delete house plan
+export const deleteHousePlan = async (id, dispatch) => {
+	dispatch(deleteHousePlanStart());
+	try {
+		const res = await userRequest.delete(`/HousePlan/${id}`);
+		dispatch(deleteHousePlanSuccess(res.data));
+	} catch (err) {
+		dispatch(deleteHousePlanFailure());
+	}
+};
+
 //add healthplan
 export const addHealthPlan = async (house, dispatch) => {
 	dispatch(addHealthPlanStart());
@@ -226,6 +246,17 @@ export const addHealthPlan = async (house, dispatch) => {
 		dispatch(addHealthPlanSuccess(res.data));
 	} catch (err) {
 		dispatch(addHealthPlanFailure());
+	}
+};
+
+//delete health plan
+export const deleteHealthPlan = async (id, dispatch) => {
+	dispatch(deleteHealthPlanStart());
+	try {
+		const res = await userRequest.delete(`/HealthPlan/${id}`);
+		dispatch(deleteHealthPlanSuccess(res.data));
+	} catch (err) {
+		dispatch(deleteHealthPlanFailure());
 	}
 };
 
@@ -259,6 +290,17 @@ export const getRoadPlan = async (dispatch) => {
 		dispatch(getRoadPlanSuccess(res.data));
 	} catch (err) {
 		dispatch(getRoadPlanFailure());
+	}
+};
+
+//delete house plan
+export const deleteRoadPlan = async (id, dispatch) => {
+	dispatch(deleteRoadPlanStart());
+	try {
+		const res = await userRequest.delete(`/RoadsPlan/${id}`);
+		dispatch(deleteRoadPlanSuccess(res.data));
+	} catch (err) {
+		dispatch(deleteRoadPlanFailure());
 	}
 };
 

@@ -22,18 +22,18 @@ export const houseSlice = createSlice({
       state.error = true;
     },
     //DELETE
-    deleteHousesStart: (state) => {
+    deleteHouseStart: (state) => {
       state.isFetching = true;
       state.error = false;
     },
-    deleteHousesSuccess: (state, action) => {
+    deleteHouseSuccess: (state, action) => {
       state.isFetching = false;
       state.houses.splice(
         state.houses.findIndex((item) => item._id === action.payload),
         1
       );
     },
-    deletePatientFailure: (state) => {
+    deleteHouseFailure: (state) => {
       state.isFetching = false;
       state.error = true;
     },

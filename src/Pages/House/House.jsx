@@ -16,6 +16,7 @@ export default function Houses() {
 
   const handleDelete = (id) => {
     deleteHouse(id, dispatch);
+    console.log("----")
   };
   const columns = [
     { field: "_id", headerName: "ID", width: 90 },
