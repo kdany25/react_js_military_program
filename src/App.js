@@ -28,6 +28,7 @@ import HealthPlanList from "./Pages/HealthPlanList/HealthPlanList";
 import HousePlanList from "./Pages/HousePlanList/HousePlanList";
 import RoadPlanList from "./Pages/RoadPlanList/RoadPlanList";
 import FeedBack from "./Pages/FeeBack/feedback";
+import HealthPlanPro from "./Pages/UpdateHealthPlan/UpdateHealthPlan";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -59,6 +60,9 @@ function App() {
 						</Route>
 						<Route path="/house/:Id">
 							<HousePro />
+						</Route>
+						<Route path="/healthPlan/:Id">
+							<HealthPlanPro />
 						</Route>
 						<Route path="/new">
 							<NewP />

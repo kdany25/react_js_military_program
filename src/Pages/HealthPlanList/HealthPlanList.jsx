@@ -123,7 +123,7 @@ export default function HealthPlanList() {
 			renderCell: (params) => {
 				return (
 					<>
-						<Link to={"/Health/" + params.row._id}>
+						<Link to={"/healthPlan/" + params.row._id}>
 							<button className="userListEdit">Update</button>
 						</Link>
 						<DeleteOutline

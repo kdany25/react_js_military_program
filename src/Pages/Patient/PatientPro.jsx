@@ -15,7 +15,7 @@ export default function Patient() {
   const patientId = location.pathname.split("/")[2];
 
   const patient= useSelector((state) =>
-  state.patient.patient.find((patient) => patient._id === patientId)
+  state.patient.patients.find((patient) => patient._id === patientId)
   );
   return (
     <div className="user">
