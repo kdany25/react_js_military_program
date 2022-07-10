@@ -8,6 +8,9 @@ import {
 	addUserStart,
 	addUserSuccess,
 	addUserFailure,
+	logOutStart,
+	logOutSuccess,
+	logOutFailure,
 } from "./userRedux";
 import { publicRequest, userRequest } from "../requestMethod";
 import {
@@ -98,6 +101,16 @@ export const login = async (dispatch, user) => {
 		dispatch(loginSuccess(res.data));
 	} catch (err) {
 		dispatch(loginFailure());
+	}
+};
+//logout
+export const logOutUser = async (id, dispatch) => {
+	dispatch(logOutStart());
+	try {
+		dispatch(logOutSuccess("user logout "));
+		
+	} catch (err) {
+		dispatch(logOutFailure());
 	}
 };
 //get users

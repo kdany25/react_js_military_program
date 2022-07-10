@@ -6,8 +6,7 @@ import Home from "./Pages/Home/Home";
 import {
 	BrowserRouter as Router,
 	Switch,
-	Route,
-	Redirect,
+	Route
 } from "react-router-dom";
 import PatientList from "./Pages/PatientList/Patientlist";
 import Patient from "./Pages/Patient/PatientPro";
@@ -29,6 +28,7 @@ import HousePlanList from "./Pages/HousePlanList/HousePlanList";
 import RoadPlanList from "./Pages/RoadPlanList/RoadPlanList";
 import FeedBack from "./Pages/FeeBack/feedback";
 import HealthPlanPro from "./Pages/UpdateHealthPlan/UpdateHealthPlan";
+import Sidebarr from "./components/sidebar/sidebarr";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -105,9 +105,21 @@ function App() {
 						</div>
 					</>
 				) : (
-					<Route path="/">
-						<FeedBack />
-					</Route>
+					
+						
+						<>
+							<Route path="/login">
+								<Login />
+							</Route>
+							<Topbar />
+							<div className="container">
+								<Sidebarr />
+								<Route path="/">
+									<FeedBack />
+								</Route>
+							</div>
+						</>
+					
 				)}
 			</Switch>
 		</Router>
