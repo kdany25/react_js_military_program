@@ -3,11 +3,7 @@ import Topbar from "./components/Topbar/Topbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import "./App.css";
 import Home from "./Pages/Home/Home";
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PatientList from "./Pages/PatientList/Patientlist";
 import Patient from "./Pages/Patient/PatientPro";
 import NewP from "./Pages/NewPatient/NewPatient";
@@ -105,21 +101,18 @@ function App() {
 						</div>
 					</>
 				) : (
-					
-						
-						<>
-							<Route path="/login">
-								<Login />
+					<>
+						<Route path="/login">
+							<Login />
+						</Route>
+						<Topbar />
+						<div className="container">
+							<Sidebarr />
+							<Route path="/">
+								<FeedBack />
 							</Route>
-							<Topbar />
-							<div className="container">
-								<Sidebarr />
-								<Route path="/">
-									<FeedBack />
-								</Route>
-							</div>
-						</>
-					
+						</div>
+					</>
 				)}
 			</Switch>
 		</Router>
