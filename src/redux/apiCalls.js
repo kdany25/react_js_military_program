@@ -108,7 +108,6 @@ export const logOutUser = async (id, dispatch) => {
 	dispatch(logOutStart());
 	try {
 		dispatch(logOutSuccess("user logout "));
-		
 	} catch (err) {
 		dispatch(logOutFailure());
 	}
