@@ -70,6 +70,6 @@ export const {
 	addUserFailure,
 	logOutStart,
 	logOutSuccess,
-	logOutFailure
+	logOutFailure,
 } = userSlice.actions;
 export default userSlice.reducer;
